@@ -1,0 +1,39 @@
+{
+    "name": "serapha/serapha",
+    "description": "A lightweight, modular PHP framework utilizing modern practices with template engine and Sanite for easy database CRUD operations.",
+    "type": "framework",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "carry0987"
+        }
+    ],
+    "require": {
+        "php": ">=8.1",
+        "serapha/framework": "^1.0",
+        "robmorgan/phinx": "^0.16.1"
+    },
+    "config": {
+        "vendor-dir": "vendor",
+        "optimize-autoloader": true,
+        "classmap-authoritative": true
+    },
+    "autoload": {
+        "psr-4": {
+            "App\\": "app/"
+        }
+    },
+    "keywords": [
+        "framework",
+        "php",
+        "modular",
+        "template engine",
+        "sanite",
+        "i18n",
+        "multilingual",
+        "CRUD",
+        "MVC"
+    ],
+    "minimum-stability": "stable",
+    "prefer-stable": true
+}
