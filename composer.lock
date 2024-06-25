@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "727173de5e448102e6632096df7de3f6",
+    "content-hash": "b2d1fc72fdf46a8e53dbe001a80b7331",
     "packages": [
         {
             "name": "cakephp/chronos",
@@ -983,16 +983,16 @@
         },
         {
             "name": "serapha/framework",
-            "version": "1.0.3",
+            "version": "1.0.0",
             "source": {
                 "type": "git",
-                "url": "https://github.com/carry0987/Serapha-Core.git",
-                "reference": "c8e47be1588f8f8d63974bfaeeae82e942f3a5cf"
+                "url": "https://github.com/SeraphaLab/Framework.git",
+                "reference": "f7e55f42d79689381aebcb3265725684bf0260cb"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/carry0987/Serapha-Core/zipball/c8e47be1588f8f8d63974bfaeeae82e942f3a5cf",
-                "reference": "c8e47be1588f8f8d63974bfaeeae82e942f3a5cf",
+                "url": "https://api.github.com/repos/SeraphaLab/Framework/zipball/f7e55f42d79689381aebcb3265725684bf0260cb",
+                "reference": "f7e55f42d79689381aebcb3265725684bf0260cb",
                 "shasum": ""
             },
             "require": {
@@ -1020,7 +1020,7 @@
                     "name": "carry0987"
                 }
             ],
-            "description": "Serapha Framework Core",
+            "description": "Serapha Framework Core Library",
             "keywords": [
                 "crud",
                 "framework",
@@ -1033,10 +1033,10 @@
                 "template engine"
             ],
             "support": {
-                "issues": "https://github.com/carry0987/Serapha-Core/issues",
-                "source": "https://github.com/carry0987/Serapha-Core/tree/1.0.3"
+                "issues": "https://github.com/SeraphaLab/Framework/issues",
+                "source": "https://github.com/SeraphaLab/Framework/tree/1.0.0"
             },
-            "time": "2024-06-25T09:08:34+00:00"
+            "time": "2024-06-25T11:21:56+00:00"
         },
         {
             "name": "symfony/config",
