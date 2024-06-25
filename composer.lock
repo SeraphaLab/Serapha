@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "b2d1fc72fdf46a8e53dbe001a80b7331",
+    "content-hash": "2bfca3d1b19746d13db2437ce5bd160e",
     "packages": [
         {
             "name": "cakephp/chronos",
@@ -307,6 +307,50 @@
                 "source": "https://github.com/cakephp/utility"
             },
             "time": "2024-06-23T00:10:36+00:00"
+        },
+        {
+            "name": "carry0987/config",
+            "version": "1.1.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/carry0987/PHP-Config.git",
+                "reference": "b3c6fd1476848df9afa7f1fe0b63af7cb0f7abea"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/carry0987/PHP-Config/zipball/b3c6fd1476848df9afa7f1fe0b63af7cb0f7abea",
+                "reference": "b3c6fd1476848df9afa7f1fe0b63af7cb0f7abea",
+                "shasum": ""
+            },
+            "require": {
+                "carry0987/redis-tool": "^1.1",
+                "php": ">=7.4"
+            },
+            "require-dev": {
+                "carry0987/sanite": "^1.1",
+                "php": ">=8.0"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "carry0987\\Config\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "carry0987"
+                }
+            ],
+            "description": "A library for easily manipulating config of php program",
+            "support": {
+                "issues": "https://github.com/carry0987/PHP-Config/issues",
+                "source": "https://github.com/carry0987/PHP-Config/tree/1.1.0"
+            },
+            "time": "2024-06-25T11:43:53+00:00"
         },
         {
             "name": "carry0987/i18n",

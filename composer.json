@@ -11,7 +11,8 @@
     "require": {
         "php": ">=8.1",
         "serapha/framework": "^1.0",
-        "robmorgan/phinx": "^0.16.1"
+        "robmorgan/phinx": "^0.16.1",
+        "carry0987/config": "^1.0"
     },
     "config": {
         "vendor-dir": "vendor",

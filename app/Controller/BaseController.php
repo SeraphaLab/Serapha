@@ -2,15 +2,26 @@
 namespace App\Controller;
 
 use Serapha\Controller\Controller;
+use carry0987\Config\Config as GlobalConfig;
+use carry0987\Redis\RedisTool;
 
 abstract class BaseController extends Controller
 {
-    public function __construct()
+    protected GlobalConfig $config;
+
+    public function __construct(RedisTool $redisTool)
     {
         $this->template->setOption([
             'template_dir' => dirname(__DIR__).'/View',
             'cache_dir' => dirname(__DIR__, 2).'/storage/cache/template',
             'auto_update' => true
         ]);
+
+        // Set the global configuration
+        $this->config = new GlobalConfig($this->sanite->getConnection());
+        $this->config->setTableName('global_config')->setIndexList([
+            'web_config' => 1
+        ]);
+        $this->config->setRedis($redisTool);
     }
 }
