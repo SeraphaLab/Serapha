@@ -22,8 +22,9 @@ class GlobalConfigSeeder extends AbstractSeed
         ];
 
         // Insert data into global_config table
-        $this->table('global_config')
-            ->insert($globalConfigData)
+        $table = $this->table('global_config');
+        $table->truncate();
+        $table->insert($globalConfigData)
             ->saveData();
     }
 }
