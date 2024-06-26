@@ -440,16 +440,16 @@
         },
         {
             "name": "carry0987/sanite",
-            "version": "1.3.6",
+            "version": "1.3.7",
             "source": {
                 "type": "git",
                 "url": "https://github.com/carry0987/Sanite.git",
-                "reference": "b79a5111ffd5619ae6316198fe6a8eed4cda185f"
+                "reference": "ddc8724665d3cc0336da8642ddfcbb8c89d7b4da"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/carry0987/Sanite/zipball/b79a5111ffd5619ae6316198fe6a8eed4cda185f",
-                "reference": "b79a5111ffd5619ae6316198fe6a8eed4cda185f",
+                "url": "https://api.github.com/repos/carry0987/Sanite/zipball/ddc8724665d3cc0336da8642ddfcbb8c89d7b4da",
+                "reference": "ddc8724665d3cc0336da8642ddfcbb8c89d7b4da",
                 "shasum": ""
             },
             "require": {
@@ -476,9 +476,9 @@
             "description": "A PHP library that provide base CRUD structure and methods, using PDO.",
             "support": {
                 "issues": "https://github.com/carry0987/Sanite/issues",
-                "source": "https://github.com/carry0987/Sanite/tree/1.3.6"
+                "source": "https://github.com/carry0987/Sanite/tree/1.3.7"
             },
-            "time": "2024-06-17T13:27:06+00:00"
+            "time": "2024-06-26T15:56:56+00:00"
         },
         {
             "name": "carry0987/template-engine",
@@ -1027,16 +1027,16 @@
         },
         {
             "name": "serapha/framework",
-            "version": "1.0.7",
+            "version": "1.0.9",
             "source": {
                 "type": "git",
                 "url": "https://github.com/SeraphaLab/Framework.git",
-                "reference": "59d9c30337cf590e2113116b648265ad1e6d3d46"
+                "reference": "06ecbd9fdf5a82d4a838e1f0bf673a7ccf2a6a40"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/SeraphaLab/Framework/zipball/59d9c30337cf590e2113116b648265ad1e6d3d46",
-                "reference": "59d9c30337cf590e2113116b648265ad1e6d3d46",
+                "url": "https://api.github.com/repos/SeraphaLab/Framework/zipball/06ecbd9fdf5a82d4a838e1f0bf673a7ccf2a6a40",
+                "reference": "06ecbd9fdf5a82d4a838e1f0bf673a7ccf2a6a40",
                 "shasum": ""
             },
             "require": {
@@ -1078,9 +1078,9 @@
             ],
             "support": {
                 "issues": "https://github.com/SeraphaLab/Framework/issues",
-                "source": "https://github.com/SeraphaLab/Framework/tree/1.0.7"
+                "source": "https://github.com/SeraphaLab/Framework/tree/1.0.9"
             },
-            "time": "2024-06-26T11:53:15+00:00"
+            "time": "2024-06-26T16:01:24+00:00"
         },
         {
             "name": "symfony/config",
