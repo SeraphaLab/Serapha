@@ -1,18 +1,17 @@
 <?php
 namespace App\Service;
 
+use Serapha\Service\Service;
+use Serapha\Model\ModelLocator;
 use App\Model\UserModel;
-use Serapha\Database\DB;
-use carry0987\Sanite\Sanite;
 
-class UserService
+class UserService extends Service
 {
     private UserModel $userModel;
 
-    public function __construct(Sanite $sanite)
+    public function __construct()
     {
-        $db = new DB($sanite);
-        $this->userModel = new UserModel($db);
+        $this->userModel = ModelLocator::get(UserModel::class);
     }
 
     public function registerUser(array $data)

@@ -1,10 +1,11 @@
 <?php
 namespace App\Controller;
 
-use App\Middleware\AuthMiddleware;
 use Serapha\Routing\Router;
 use Serapha\Routing\Response;
-use Serapha\Helper\Str;
+use Serapha\Service\ServiceLocator;
+use App\Utils\Str;
+use App\Middleware\AuthMiddleware;
 use App\Service\UserService;
 use App\Helper\UserHelper;
 
@@ -18,7 +19,7 @@ class UserController extends BaseController
     {
         $this->router = $router;
         $this->response = $response;
-        $this->userService = new UserService($this->sanite);
+        $this->userService = ServiceLocator::get(UserService::class);
     }
 
     public function show(string|int $id)

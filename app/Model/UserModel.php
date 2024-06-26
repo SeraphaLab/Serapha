@@ -1,17 +1,10 @@
 <?php
 namespace App\Model;
 
-use Serapha\Database\DB;
+use Serapha\Model\Model;
 
-class UserModel
+class UserModel extends Model
 {
-    private DB $db;
-
-    public function __construct(DB $db)
-    {
-        $this->db = $db;
-    }
-
     public function createUser(array $data)
     {
         $query = 'INSERT INTO user (username, password, group_id, language, online_status, last_login, join_date) VALUES (?,?,?,?,?,?,?)';

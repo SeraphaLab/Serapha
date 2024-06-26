@@ -1027,16 +1027,16 @@
         },
         {
             "name": "serapha/framework",
-            "version": "1.0.0",
+            "version": "1.0.7",
             "source": {
                 "type": "git",
                 "url": "https://github.com/SeraphaLab/Framework.git",
-                "reference": "f7e55f42d79689381aebcb3265725684bf0260cb"
+                "reference": "59d9c30337cf590e2113116b648265ad1e6d3d46"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/SeraphaLab/Framework/zipball/f7e55f42d79689381aebcb3265725684bf0260cb",
-                "reference": "f7e55f42d79689381aebcb3265725684bf0260cb",
+                "url": "https://api.github.com/repos/SeraphaLab/Framework/zipball/59d9c30337cf590e2113116b648265ad1e6d3d46",
+                "reference": "59d9c30337cf590e2113116b648265ad1e6d3d46",
                 "shasum": ""
             },
             "require": {
@@ -1052,7 +1052,7 @@
             "type": "library",
             "autoload": {
                 "psr-4": {
-                    "Serapha\\": "framework/"
+                    "Serapha\\": "src/"
                 }
             },
             "notification-url": "https://packagist.org/downloads/",
@@ -1078,9 +1078,9 @@
             ],
             "support": {
                 "issues": "https://github.com/SeraphaLab/Framework/issues",
-                "source": "https://github.com/SeraphaLab/Framework/tree/1.0.0"
+                "source": "https://github.com/SeraphaLab/Framework/tree/1.0.7"
             },
-            "time": "2024-06-25T11:21:56+00:00"
+            "time": "2024-06-26T11:53:15+00:00"
         },
         {
             "name": "symfony/config",
