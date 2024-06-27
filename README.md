@@ -2,39 +2,21 @@
 [![Packgist](https://img.shields.io/packagist/v/serapha/framework.svg?style=flat-square&label=core)](https://packagist.org/packages/serapha/framework)  
 Serapha is a lightweight, modular PHP framework designed to simplify web application development with a focus on simplicity and performance. Built with modern PHP practices, Serapha leverages powerful libraries such as [`carry0987/template-engine`](https://github.com/carry0987/TemplateEngine) for templating and [`carry0987/sanite`](https://github.com/carry0987/Sanite) for database CRUD operations, ensuring an efficient and streamlined development process.
 
-### Key Features
+### Features
 
-- **Modular Architecture**: Organized structure to keep your code clean and maintainable.
-- **Powerful Templating**: Integrates template engine for fast and flexible templating.
-- **Database Abstraction**: Utilizes [`carry0987/sanite`](https://github.com/carry0987/Sanite) for robust and easy-to-use database CRUD operations.
-- **Routing System**: Simple and intuitive routing to map URLs to specific controllers and actions.
-- **Environment Configuration**: Supports `.env` configuration for managing different environments easily.
-- **Middleware Support**: Add custom middleware for request processing and enhance security or performance.
+- **Modular Architecture**: Organize your code into manageable modules.
+- **Powerful Templating**: Utilize the built-in template engine for flexible and efficient templating.
+- **Database Abstraction**: Leverage [`carry0987/sanite`](https://github.com/carry0987/Sanite) for robust and easy database CRUD operations.
+- **Database Migration**: Utilize [`robmorgan/phinx`](https://github.com/cakephp/phinx) for hassle-free database schema migrations.
+- **Advanced Routing System**: Map URLs to specific controllers and actions with ease.
+- **Environment Configuration**: Manage different environments seamlessly with `.env` configuration support.
+- **Service Layer**: Organize your business logic into reusable services.
+- **Middleware Support**: Extend and secure your application using custom middleware.
+- **Dependency Injection**: Effortlessly manage your dependencies with our built-in DI container.
+- **Redis Integration**: Use built-in support for Redis to manage caching and other Redis-based features.
 
-### Getting Started
+### Documentation
 
-1. **Clone the repository:**
-   ```sh
-   git clone https://github.com/SeraphaLab/Serapha.git
-   cd serapha
-   ```
+Check out the **[https://seraphalab.github.io](https://seraphalab.github.io)** for detailed information on how to get started with Serapha, including installation instructions, configuration options, and more.
 
-2. **Install dependencies:**
-   ```sh
-   composer install
-   ```
-
-3. **Set up environment variables:**
-   Copy `.env.example` to `.env` and customize it as per your requirements.
-   ```sh
-   cp .env.example .env
-   ```
-
-4. **Run the application:**
-   ```sh
-   php -S localhost:8000 -t public
-   ```
-
-Visit `http://localhost:8000` to see your application in action.
-
-Whether you are building a small website or a large-scale web application, Serapha provides you with the tools and flexibility needed to succeed. Dive into the documentation to explore more features and start building with Serapha today!
+Whether you are building a small website or a large-scale web application, Serapha provides you with the tools and flexibility needed to succeed. Dive into the documentation to explore more features and start building with Serapha today! :rocket:
