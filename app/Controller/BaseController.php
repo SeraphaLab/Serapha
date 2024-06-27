@@ -23,5 +23,10 @@ abstract class BaseController extends Controller
             'web_config' => 1
         ]);
         $this->config->setRedis($redisTool);
+
+        // Set the global data for Template
+        $this->template->setData([
+            'config' => $this->config->getConfig('web_config')
+        ]);
     }
 }
