@@ -1,22 +1,22 @@
 <?php
 namespace App\Middleware;
 
-use Serapha\Middleware\MiddlewareInterface;
-use Serapha\Routing\Request;
 use Serapha\Routing\Response;
+use Serapha\Routing\Request;
+use Serapha\Routing\Handler;
+use Serapha\Middleware\Middleware;
 
-class AuthMiddleware implements MiddlewareInterface
+class AuthMiddleware extends Middleware
 {
-    public function handle(Request $request, Response $response, callable $next): Response
+    public function process(Request $request, Response $response, Handler $handler): Response
     {
         // Check if the user is logged in
         if (!isset($_SESSION['user'])) {
             // If not logged in, redirect to the login page
-            $response->redirect('/login');
-            return $response;
+            return $response->redirect('/login');
         }
 
         // If logged in, continue processing the request
-        return $next($request, $response);
+        return $handler->handle($request);
     }
 }

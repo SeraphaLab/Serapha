@@ -1,15 +1,25 @@
 <?php
-/** @var \Serapha\Routing\Router $router */
-
 use App\Controller\{
     HomeController,
     UserController,
     AuthController
 };
+use App\Middleware\AuthMiddleware;
+use Serapha\Routing\Route;
 
-$router->get('/', HomeController::class); // This will call index method as default
-$router->get('/user/create', [UserController::class, 'create']);
-$router->post('/user/create', [UserController::class, 'store']);
-$router->addRoute('GET', '/user/{id}', [UserController::class, 'show']);
-$router->addRoute('GET', '/login', [AuthController::class, 'index']);
-$router->addRoute('POST', '/login', [AuthController::class]);
+// Regular routes
+Route::get('/', [HomeController::class, 'index']);
+Route::middleware(AuthMiddleware::class)->get('/user/create', [UserController::class, 'create']);
+Route::middleware(AuthMiddleware::class)->post('/user/create', [UserController::class, 'store']);
+Route::get('/user/{id}', [UserController::class, 'show']);
+Route::get('/login', [AuthController::class, 'index']);
+Route::post('/login', [AuthController::class, 'store']);
+
+// Middleware and group routes
+Route::middleware(AuthMiddleware::class)->group(function () {
+    Route::prefix('admin')->group(function () {
+        Route::get('/dashboard', [UserController::class, 'dashboard']);
+        Route::get('/profile', [UserController::class, 'profile']);
+        Route::get('/settings', [UserController::class, 'settings']);
+    });
+});

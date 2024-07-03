@@ -1,23 +1,19 @@
 <?php
 namespace App\Controller;
 
-use Serapha\Routing\Router;
-use Serapha\Routing\Response;
 use Serapha\Service\ServiceLocator;
 use App\Utils\Str;
-use App\Middleware\AuthMiddleware;
 use App\Service\UserService;
 use App\Helper\UserHelper;
+use Serapha\Routing\Response;
 
 class UserController extends BaseController
 {
-    private Router $router;
     private Response $response;
     private UserService $userService;
 
-    public function __construct(Router $router, Response $response)
+    public function __construct(Response $response)
     {
-        $this->router = $router;
         $this->response = $response;
         $this->userService = ServiceLocator::get(UserService::class);
     }
@@ -38,14 +34,11 @@ class UserController extends BaseController
 
     public function create()
     {
-        // Run middleware before processing the request
-        $this->router->runMiddleware(new AuthMiddleware())->send();
-
         $username = 'john_doe';
 
         if (!UserHelper::isValidUsername($username)) {
-            echo 'Invalid username!';
-            return;
+            $this->response->getBody()->write('Invalid username!');
+            return $this->response;
         }
 
         $data = [
