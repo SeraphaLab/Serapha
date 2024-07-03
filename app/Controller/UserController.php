@@ -2,10 +2,10 @@
 namespace App\Controller;
 
 use Serapha\Service\ServiceLocator;
+use Serapha\Routing\Response;
 use App\Utils\Str;
 use App\Service\UserService;
 use App\Helper\UserHelper;
-use Serapha\Routing\Response;
 
 class UserController extends BaseController
 {
