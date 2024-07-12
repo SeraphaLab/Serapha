@@ -12,10 +12,21 @@ class APIController extends BaseController
         return $this->json($data);
     }
 
-    public function store($id)
+    public function param($str)
     {
         $data = [
-            'hello' => 'API Controller',
+            'param' => $str,
+        ];
+
+        return $this->json($data);
+    }
+
+    public function show($id, $name = null)
+    
+    {
+        $data = [
+            'id' => $id,
+            'name' => $name,
         ];
 
         return $this->json($data);
