@@ -26,6 +26,11 @@ Route::prefix('admin')->middleware(AuthMiddleware::class)->group(function () {
 // API routes
 Route::prefix('api')->group(function () {
     Route::get('/user/{param}', [APIController::class, 'param'])->where('param', '[a-z]+');
-    Route::get('/user/{id}/{name?}', [APIController::class, 'show'])->where(['id' => '[0-9]+', 'name' => '[a-zA-Z]+']);
+    Route::get('/user/{id}/{name?}', [APIController::class, 'show'])->where(
+        [
+            'id' => '[0-9]+',
+            'name' => '[a-zA-Z]+'
+        ]
+    );
     Route::get('/user/create', [APIController::class, 'index']);
 });
