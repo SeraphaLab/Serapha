@@ -16,6 +16,12 @@ Route::get('/user/{id}', [UserController::class, 'show']);
 Route::get('/login', [AuthController::class, 'index']);
 Route::post('/login', [AuthController::class, 'store']);
 
+// Route without controller
+Route::get('/test/{param}', function (string $param = 'World') {
+    echo 'Hello ' . $param;
+    return;
+})->where('param', '[0-9a-zA-Z]+');
+
 // Middleware and group routes
 Route::prefix('admin')->middleware(AuthMiddleware::class)->group(function () {
     Route::get('/dashboard', [UserController::class, 'dashboard']);
