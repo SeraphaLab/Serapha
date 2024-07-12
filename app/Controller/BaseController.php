@@ -29,4 +29,11 @@ abstract class BaseController extends Controller
             'config' => $this->config->getConfig('web_config')
         ]);
     }
+
+    public function json(array $data): string
+    {
+        header('Content-Type: application/json');
+
+        exit(json_encode($data));
+    }
 }
