@@ -14,6 +14,7 @@ abstract class BaseController extends Controller
         $this->template->setOption([
             'template_dir' => dirname(__DIR__).'/View',
             'cache_dir' => dirname(__DIR__, 2).'/storage/cache/template',
+            'static_dir' => '../asset',
             'auto_update' => true
         ]);
 
