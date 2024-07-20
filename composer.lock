@@ -1258,16 +1258,16 @@
         },
         {
             "name": "serapha/framework",
-            "version": "1.1.4",
+            "version": "1.1.5",
             "source": {
                 "type": "git",
                 "url": "https://github.com/SeraphaLab/Framework.git",
-                "reference": "06c827ecd1a130edc69f38982004da13bc7d945d"
+                "reference": "bcb58ad43e4c56ac61afd7a893321c085c327ae7"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/SeraphaLab/Framework/zipball/06c827ecd1a130edc69f38982004da13bc7d945d",
-                "reference": "06c827ecd1a130edc69f38982004da13bc7d945d",
+                "url": "https://api.github.com/repos/SeraphaLab/Framework/zipball/bcb58ad43e4c56ac61afd7a893321c085c327ae7",
+                "reference": "bcb58ad43e4c56ac61afd7a893321c085c327ae7",
                 "shasum": ""
             },
             "require": {
@@ -1311,9 +1311,9 @@
             ],
             "support": {
                 "issues": "https://github.com/SeraphaLab/Framework/issues",
-                "source": "https://github.com/SeraphaLab/Framework/tree/1.1.4"
+                "source": "https://github.com/SeraphaLab/Framework/tree/1.1.5"
             },
-            "time": "2024-07-15T06:21:40+00:00"
+            "time": "2024-07-20T11:48:45+00:00"
         },
         {
             "name": "symfony/config",
