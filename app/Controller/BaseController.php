@@ -2,12 +2,15 @@
 namespace App\Controller;
 
 use Serapha\Controller\Controller;
+use Serapha\Utils\Utils;
 use carry0987\Config\Config as GlobalConfig;
 use carry0987\Redis\RedisTool;
+use carry0987\SessionManager\SessionManager;
 
 abstract class BaseController extends Controller
 {
     protected GlobalConfig $config;
+    protected SessionManager $session;
 
     public function __construct(RedisTool $redisTool)
     {
@@ -30,6 +33,12 @@ abstract class BaseController extends Controller
         // Set the global data for Template
         $this->template->setData([
             'config' => $this->config->getConfig('web_config')
+        ]);
+
+        // Set the session
+        $this->session = new SessionManager(Utils::xxHash($_SERVER['PHP_SELF']), [
+            'lifetime' => 3600,
+            'samesite' => 'Strict'
         ]);
     }
 

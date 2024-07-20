@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "135a75db28a252937bbfe3190ca7242a",
+    "content-hash": "aa1f0aa3d93a6feb78f612a7c33898a1",
     "packages": [
         {
             "name": "cakephp/chronos",
@@ -479,6 +479,45 @@
                 "source": "https://github.com/carry0987/Sanite/tree/1.3.7"
             },
             "time": "2024-06-26T15:56:56+00:00"
+        },
+        {
+            "name": "carry0987/session-manager",
+            "version": "1.0.10",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/carry0987/SessionManager.git",
+                "reference": "18f7d4b51085cdbdda10a4b8e5a414c84fbd365d"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/carry0987/SessionManager/zipball/18f7d4b51085cdbdda10a4b8e5a414c84fbd365d",
+                "reference": "18f7d4b51085cdbdda10a4b8e5a414c84fbd365d",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=7.4"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "carry0987\\SessionManager\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "carry0987"
+                }
+            ],
+            "description": "Flexible and secure session management for PHP. This library provides an object-oriented wrapper for PHP's native session handling functions, implementing SessionHandlerInterface for easy integration with existing projects. It also comes with additional features like session encryption and database storage handlers for scalable applications.",
+            "support": {
+                "issues": "https://github.com/carry0987/SessionManager/issues",
+                "source": "https://github.com/carry0987/SessionManager/tree/1.0.10"
+            },
+            "time": "2024-07-20T15:44:17+00:00"
         },
         {
             "name": "carry0987/template-engine",
@@ -1258,16 +1297,16 @@
         },
         {
             "name": "serapha/framework",
-            "version": "1.1.5",
+            "version": "1.1.6",
             "source": {
                 "type": "git",
                 "url": "https://github.com/SeraphaLab/Framework.git",
-                "reference": "bcb58ad43e4c56ac61afd7a893321c085c327ae7"
+                "reference": "a4f8dd3081198643b52f22ff7175aa1119d3736f"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/SeraphaLab/Framework/zipball/bcb58ad43e4c56ac61afd7a893321c085c327ae7",
-                "reference": "bcb58ad43e4c56ac61afd7a893321c085c327ae7",
+                "url": "https://api.github.com/repos/SeraphaLab/Framework/zipball/a4f8dd3081198643b52f22ff7175aa1119d3736f",
+                "reference": "a4f8dd3081198643b52f22ff7175aa1119d3736f",
                 "shasum": ""
             },
             "require": {
@@ -1311,9 +1350,9 @@
             ],
             "support": {
                 "issues": "https://github.com/SeraphaLab/Framework/issues",
-                "source": "https://github.com/SeraphaLab/Framework/tree/1.1.5"
+                "source": "https://github.com/SeraphaLab/Framework/tree/1.1.6"
             },
-            "time": "2024-07-20T11:48:45+00:00"
+            "time": "2024-07-20T17:26:08+00:00"
         },
         {
             "name": "symfony/config",
