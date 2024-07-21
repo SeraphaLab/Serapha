@@ -38,6 +38,7 @@ abstract class BaseController extends Controller
         // Set the session
         $this->session = new SessionManager(Utils::xxHash($_SERVER['PHP_SELF']), [
             'path' => Utils::trimPath(dirname($_SERVER['PHP_SELF'], 2).'/'),
+            'secure' => Utils::checkHttps(),
             'samesite' => 'Strict'
         ]);
     }
