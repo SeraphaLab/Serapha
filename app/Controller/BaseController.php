@@ -6,6 +6,7 @@ use Serapha\Utils\Utils;
 use carry0987\Config\Config as GlobalConfig;
 use carry0987\Redis\RedisTool;
 use carry0987\SessionManager\SessionManager;
+use App\Utils\Uri;
 
 abstract class BaseController extends Controller
 {
@@ -17,11 +18,15 @@ abstract class BaseController extends Controller
         $this->template->setOption([
             'template_dir' => dirname(__DIR__).'/View',
             'cache_dir' => dirname(__DIR__, 2).'/storage/cache/template',
-            'css_dir' => '../asset/css',
-            'js_dir' => '../asset/js',
-            'static_dir' => '../asset',
+            'css_dir' => 'asset/css',
+            'js_dir' => 'asset/js',
+            'static_dir' => 'asset',
             'auto_update' => true
         ]);
+
+        $this->template->assetPath(function (string $path) {
+            return Uri::inRewriteMode() ? '/'.$path : $path;
+        });
 
         // Set the global configuration
         $this->config = new GlobalConfig($this->sanite->getConnection());

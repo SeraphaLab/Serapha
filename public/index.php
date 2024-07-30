@@ -9,4 +9,4 @@ Bootstrap::init(dirname(__DIR__));
 $core = new Core();
 
 // Run the application
-$core->run($_GET['query'] ?? '/');
+$core->run($_SERVER['REQUEST_URI'] ?? '/');
