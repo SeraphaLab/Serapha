@@ -10,6 +10,7 @@ jobs:
     runs-on: ubuntu-latest
     outputs:
       version: ${{ env.VERSION }}
+      is_prerelease: ${{ env.IS_PRERELEASE }}
       message: ${{ env.TAG_MESSAGE }}
     steps:
       - name: Check out the repo
@@ -24,11 +25,19 @@ jobs:
           echo "Release message: "$TAG_MESSAGE
           echo "TAG_MESSAGE=$TAG_MESSAGE" >> $GITHUB_ENV
 
-      - name: Get update version
+      - name: Get update version and check prerelease
         run: |
           VERSION=${GITHUB_REF#refs/tags/}
           echo "New version: $VERSION"
           echo "VERSION=$VERSION" >> $GITHUB_ENV
+
+          # Check if version starts with "0"
+          if [[ $VERSION == 0* ]]; then
+            IS_PRERELEASE=true
+          else
+            IS_PRERELEASE=false
+          fi
+          echo "IS_PRERELEASE=$IS_PRERELEASE" >> $GITHUB_ENV
 
   build:
     needs: release-note
@@ -48,5 +57,5 @@ jobs:
           body: |
             ${{ needs.release-note.outputs.message }}
           draft: false
-          prerelease: false
+          prerelease: ${{ needs.release-note.outputs.is_prerelease }}
           omitDraftDuringUpdate: true
