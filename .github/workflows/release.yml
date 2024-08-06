@@ -52,7 +52,6 @@ jobs:
       - name: Update version for repository
         run: |
           VERSION=${{ needs.release-note.outputs.version }}
-          echo "VERSION=$VERSION" >> $GITHUB_ENV
           echo "Dump version to $VERSION"
           sed -i 's/"version": ".*"/"version": "'$VERSION'"/' composer.json
 
