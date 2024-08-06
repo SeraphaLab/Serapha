@@ -3,7 +3,7 @@
     "description": "A lightweight, modular PHP framework utilizing modern practices with template engine and Sanite for easy database CRUD operations.",
     "type": "framework",
     "license": "MIT",
-    "version": "1.0.0",
+    "version": "0.0.1",
     "authors": [
         {
             "name": "carry0987"
