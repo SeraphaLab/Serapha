@@ -1,5 +1,6 @@
 # Serapha
-[![Packgist](https://img.shields.io/packagist/v/serapha/framework.svg?style=flat-square&label=core)](https://packagist.org/packages/serapha/framework)  
+[![Packgist](https://img.shields.io/packagist/v/serapha/framework.svg?style=flat-square&label=core)](https://packagist.org/packages/serapha/framework)
+[![Release](https://img.shields.io/github/v/release/SeraphaLab/Serapha?style=flat-square&include_prereleases)](https://github.com/SeraphaLab/Serapha/releases)  
 Serapha is a lightweight, modular PHP framework designed to simplify web application development with a focus on simplicity and performance. Built with modern PHP practices, Serapha leverages powerful libraries such as [`carry0987/template-engine`](https://github.com/carry0987/TemplateEngine) for templating and [`carry0987/sanite`](https://github.com/carry0987/Sanite) for database CRUD operations, ensuring an efficient and streamlined development process.
 
 ### Features
