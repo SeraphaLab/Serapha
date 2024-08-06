@@ -59,7 +59,7 @@ jobs:
       - name: Commit changes
         uses: EndBug/add-and-commit@v9
         with:
-          message: 'Update version to v${{ env.VERSION }}'
+          message: 'Update version to v${{ needs.release-note.outputs.version }}'
           add: '.'
           author_name: GitHub Actions
           author_email: actions@github.com
