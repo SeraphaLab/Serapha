@@ -6,7 +6,7 @@ use Phinx\Migration\AbstractMigration;
 
 final class GlobalConfig extends AbstractMigration
 {
-    public function change()
+    public function change(): void
     {
         // Create global_config table
         $this->table('global_config', [
