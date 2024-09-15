@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "92b9ff4e64f975830b4230343d72d095",
+    "content-hash": "4996cd95fb923c8b37133c14eeab5032",
     "packages": [
         {
             "name": "cakephp/chronos",
@@ -440,6 +440,54 @@
                 "source": "https://github.com/carry0987/PHP-Redis-Tool/tree/1.1.1"
             },
             "time": "2024-01-27T18:35:28+00:00"
+        },
+        {
+            "name": "carry0987/restful",
+            "version": "1.1.4",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/carry0987/PHP-RESTful.git",
+                "reference": "2639038b7811fb1584cad04ae4731f991c492793"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/carry0987/PHP-RESTful/zipball/2639038b7811fb1584cad04ae4731f991c492793",
+                "reference": "2639038b7811fb1584cad04ae4731f991c492793",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=8.0"
+            },
+            "require-dev": {
+                "php": ">=8.0"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "carry0987\\RESTful\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "carry0987"
+                }
+            ],
+            "description": "A simple RESTful API class for PHP, without any framework",
+            "keywords": [
+                "Simple",
+                "api",
+                "lightweight",
+                "restful"
+            ],
+            "support": {
+                "issues": "https://github.com/carry0987/PHP-RESTful/issues",
+                "source": "https://github.com/carry0987/PHP-RESTful/tree/1.1.4"
+            },
+            "time": "2023-12-05T10:29:22+00:00"
         },
         {
             "name": "carry0987/sanite",

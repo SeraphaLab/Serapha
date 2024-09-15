@@ -1,0 +1,17 @@
+{
+    "database": "Database",
+    "db_host": "Host",
+    "db_name": "Name",
+    "db_port": "Port",
+    "db_user": "User",
+    "db_password": "Password",
+    "db_connect_error": "Database Connect Error",
+    "db_unknown": "Unknown database",
+    "db_host_empty": "DB Host should not be empty !",
+    "db_name_empty": "DB Name should not be empty !",
+    "db_port_empty": "Port should not be empty !",
+    "db_user_empty": "DB User should not be empty !",
+    "db_password_empty": "DB Password should not be empty !",
+    "db_version": "Database Version",
+    "db_size": "Database Size"
+}
