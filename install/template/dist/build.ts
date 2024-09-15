@@ -32,7 +32,7 @@ function determineExternal(id: string): boolean {
 
 function getRollupOptions(file: string): RollupOptions {
     return {
-        input: path.join('dist', 'ts', file),
+        input: path.join('template', 'dist', 'ts', file),
         plugins: [
             typescript({ tsconfig: './tsconfig.json' }),
             resolve(),
@@ -43,7 +43,7 @@ function getRollupOptions(file: string): RollupOptions {
 }
 
 function getOutputOptions(file: string): OutputOptions {
-    const outputPath: string = path.join('dist', 'js', file.replace(/\.ts$/, '.min.js'));
+    const outputPath: string = path.join('template', 'dist', 'js', file.replace(/\.ts$/, '.min.js'));
     return {
         file: outputPath,
         format: 'umd',

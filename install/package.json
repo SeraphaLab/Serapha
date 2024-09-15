@@ -8,10 +8,10 @@
     "sweetalert2": "^11.14.0"
   },
   "scripts": {
-    "build": "BUILD=development pnpm dlx tsx dist/build.ts",
-    "build:watch": "BUILD=watch pnpm dlx tsx dist/build.ts",
-    "build:production": "BUILD=production pnpm dlx tsx dist/build.ts",
-    "dist": "pnpm dlx tsx dist/pluginManager.ts"
+    "build": "BUILD=development pnpm dlx tsx template/dist/build.ts",
+    "build:watch": "BUILD=watch pnpm dlx tsx template/dist/build.ts",
+    "build:production": "BUILD=production pnpm dlx tsx template/dist/build.ts",
+    "dist": "pnpm dlx tsx template/dist/pluginManager.ts"
   },
   "devDependencies": {
     "@carry0987/plugin-manager": "^1.0.2",

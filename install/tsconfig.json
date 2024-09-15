@@ -7,11 +7,11 @@
         "strict": true,
         "esModuleInterop": true,
         "declaration": false,
-        "outDir": "dist/js",
+        "outDir": "template/dist/js",
         "baseUrl": "."
     },
     "include": [
-        "dist/ts/**/*.ts"
+        "template/dist/ts/**/*.ts"
     ],
-    "exclude": ["node_modules", "plugins"]
+    "exclude": ["template/node_modules", "template/plugins"]
 }
