@@ -149,7 +149,7 @@ class Installer
 
     protected function checkInstallStatus()
     {
-        $lock_file = $this->config['root_path'].'/install/cache/'.$this->config['lock_file'];
+        $lock_file = $this->config['root_path'].'/storage/cache/'.$this->config['lock_file'];
         if (file_exists($lock_file)) {
             return true;
         }
@@ -240,7 +240,7 @@ class Installer
 
     protected function generateLockFile()
     {
-        $lockFileResult = self::generateFile($this->config['root_path'] . '/install/cache/' . $this->config['lock_file'], '');
+        $lockFileResult = self::generateFile($this->config['root_path'] . '/storage/cache/' . $this->config['lock_file'], '');
         if ($lockFileResult !== true) {
             throw new \Exception("Failed to create the lock file: {$lockFileResult}");
         }
