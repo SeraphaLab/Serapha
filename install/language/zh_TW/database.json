@@ -1,0 +1,17 @@
+{
+    "database": "資料庫",
+    "db_host": "主機",
+    "db_name": "名稱",
+    "db_port": "Port",
+    "db_user": "使用者",
+    "db_password": "密碼",
+    "db_connect_error": "資料庫連線錯誤",
+    "db_unknown": "未知資料庫",
+    "db_host_empty": "資料庫主機不得為空!",
+    "db_name_empty": "資料庫名稱不得為空!",
+    "db_port_empty": "Port 不得為空!",
+    "db_user_empty": "資料庫使用者不得為空!",
+    "db_password_empty": "資料庫密碼不得為空!",
+    "db_version": "資料庫版本",
+    "db_size": "資料庫大小"
+}

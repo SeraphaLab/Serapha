@@ -24,3 +24,6 @@ vendor/
 # Cache
 storage/**/*.*
 !storage/**/index.html
+
+# Install
+install/cache/*

@@ -6,3 +6,7 @@
 # exclude files for prettier
 .prettierignore export-ignore
 .prettierrc export-ignore
+
+# excluse files for linguist
+install/**/plugins/** linguist-vendored
+install/**/js/** linguist-vendored
