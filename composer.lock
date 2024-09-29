@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "82557da438fd12ecd438743bb51b683c",
+    "content-hash": "f26f3e9147fc54e4287134d1e9b5f9f1",
     "packages": [
         {
             "name": "cakephp/chronos",
@@ -1310,16 +1310,16 @@
         },
         {
             "name": "robmorgan/phinx",
-            "version": "0.16.3",
+            "version": "0.16.4",
             "source": {
                 "type": "git",
                 "url": "https://github.com/cakephp/phinx.git",
-                "reference": "b5dab9908aa4edfe866b3f564abcba53d14c8989"
+                "reference": "0ef61fc10395dc25ab37c45125a5be5d6231299c"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/cakephp/phinx/zipball/b5dab9908aa4edfe866b3f564abcba53d14c8989",
-                "reference": "b5dab9908aa4edfe866b3f564abcba53d14c8989",
+                "url": "https://api.github.com/repos/cakephp/phinx/zipball/0ef61fc10395dc25ab37c45125a5be5d6231299c",
+                "reference": "0ef61fc10395dc25ab37c45125a5be5d6231299c",
                 "shasum": ""
             },
             "require": {
@@ -1391,28 +1391,29 @@
             ],
             "support": {
                 "issues": "https://github.com/cakephp/phinx/issues",
-                "source": "https://github.com/cakephp/phinx/tree/0.16.3"
+                "source": "https://github.com/cakephp/phinx/tree/0.16.4"
             },
-            "time": "2024-09-07T07:48:48+00:00"
+            "time": "2024-09-25T16:10:29+00:00"
         },
         {
             "name": "serapha/framework",
-            "version": "1.1.23",
+            "version": "1.1.24",
             "source": {
                 "type": "git",
                 "url": "https://github.com/SeraphaLab/Framework.git",
-                "reference": "aeb977143bcb84dd0a4089ca0521974b50a8ca85"
+                "reference": "886a75e3ab080edab43b32f4b6332f5a3b1583fc"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/SeraphaLab/Framework/zipball/aeb977143bcb84dd0a4089ca0521974b50a8ca85",
-                "reference": "aeb977143bcb84dd0a4089ca0521974b50a8ca85",
+                "url": "https://api.github.com/repos/SeraphaLab/Framework/zipball/886a75e3ab080edab43b32f4b6332f5a3b1583fc",
+                "reference": "886a75e3ab080edab43b32f4b6332f5a3b1583fc",
                 "shasum": ""
             },
             "require": {
                 "carry0987/i18n": "^2.0",
                 "carry0987/redis-tool": "^1.1",
                 "carry0987/sanite": "^1.1",
+                "carry0987/session-manager": "^1.0",
                 "carry0987/template-engine": "^1.0",
                 "carry0987/utils": "^1.0",
                 "httpsoft/http-message": "^1.1",
@@ -1450,9 +1451,9 @@
             ],
             "support": {
                 "issues": "https://github.com/SeraphaLab/Framework/issues",
-                "source": "https://github.com/SeraphaLab/Framework/tree/1.1.23"
+                "source": "https://github.com/SeraphaLab/Framework/tree/1.1.24"
             },
-            "time": "2024-09-24T11:31:47+00:00"
+            "time": "2024-09-29T04:56:20+00:00"
         },
         {
             "name": "symfony/config",
