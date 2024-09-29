@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "a4b691952006e363d4331f3881562bee",
+    "content-hash": "e96a46c8a4db8024b396f94fd6a7cf0e",
     "packages": [
         {
             "name": "cakephp/chronos",
@@ -401,16 +401,16 @@
         },
         {
             "name": "carry0987/redis-tool",
-            "version": "1.1.1",
+            "version": "1.1.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/carry0987/PHP-Redis-Tool.git",
-                "reference": "3bedb937a0ba6b449565eca38453bae6c597dec9"
+                "reference": "08c02b6e41c924d442152b5dac2d95362c08033a"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/carry0987/PHP-Redis-Tool/zipball/3bedb937a0ba6b449565eca38453bae6c597dec9",
-                "reference": "3bedb937a0ba6b449565eca38453bae6c597dec9",
+                "url": "https://api.github.com/repos/carry0987/PHP-Redis-Tool/zipball/08c02b6e41c924d442152b5dac2d95362c08033a",
+                "reference": "08c02b6e41c924d442152b5dac2d95362c08033a",
                 "shasum": ""
             },
             "require": {
@@ -437,9 +437,9 @@
             ],
             "support": {
                 "issues": "https://github.com/carry0987/PHP-Redis-Tool/issues",
-                "source": "https://github.com/carry0987/PHP-Redis-Tool/tree/1.1.1"
+                "source": "https://github.com/carry0987/PHP-Redis-Tool/tree/1.1.2"
             },
-            "time": "2024-01-27T18:35:28+00:00"
+            "time": "2024-09-29T10:31:25+00:00"
         },
         {
             "name": "carry0987/restful",
@@ -1397,16 +1397,16 @@
         },
         {
             "name": "serapha/framework",
-            "version": "1.1.29",
+            "version": "1.1.30",
             "source": {
                 "type": "git",
                 "url": "https://github.com/SeraphaLab/Framework.git",
-                "reference": "bf0f5b260935625e17fe5450d7bda5682c5da2bb"
+                "reference": "7af9751d7696ce56438201c80e6c9501194c3e41"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/SeraphaLab/Framework/zipball/bf0f5b260935625e17fe5450d7bda5682c5da2bb",
-                "reference": "bf0f5b260935625e17fe5450d7bda5682c5da2bb",
+                "url": "https://api.github.com/repos/SeraphaLab/Framework/zipball/7af9751d7696ce56438201c80e6c9501194c3e41",
+                "reference": "7af9751d7696ce56438201c80e6c9501194c3e41",
                 "shasum": ""
             },
             "require": {
@@ -1451,9 +1451,9 @@
             ],
             "support": {
                 "issues": "https://github.com/SeraphaLab/Framework/issues",
-                "source": "https://github.com/SeraphaLab/Framework/tree/1.1.29"
+                "source": "https://github.com/SeraphaLab/Framework/tree/1.1.30"
             },
-            "time": "2024-09-29T10:14:06+00:00"
+            "time": "2024-09-29T10:32:40+00:00"
         },
         {
             "name": "symfony/config",
