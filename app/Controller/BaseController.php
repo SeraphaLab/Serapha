@@ -48,7 +48,7 @@ abstract class BaseController extends Controller
         ]);
     }
 
-    public function json(array $data): string
+    public function json(array|bool|int $data): string
     {
         header('Content-Type: application/json');
 
