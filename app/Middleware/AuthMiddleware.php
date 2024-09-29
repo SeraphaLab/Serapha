@@ -17,6 +17,6 @@ class AuthMiddleware extends Middleware
         }
 
         // If logged in, continue processing the request
-        return $handler->handle($request);
+        return $handler->handle($request, $response);
     }
 }
