@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "f26f3e9147fc54e4287134d1e9b5f9f1",
+    "content-hash": "06a2f9da97a67aacf0246710441339e7",
     "packages": [
         {
             "name": "cakephp/chronos",
@@ -1397,16 +1397,16 @@
         },
         {
             "name": "serapha/framework",
-            "version": "1.1.25",
+            "version": "1.1.26",
             "source": {
                 "type": "git",
                 "url": "https://github.com/SeraphaLab/Framework.git",
-                "reference": "daedbbfede0f33d45e45392d7bcc28a09aa5fff2"
+                "reference": "ad910de3b0353a6aac3082709f1f5d4fd0052ca9"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/SeraphaLab/Framework/zipball/daedbbfede0f33d45e45392d7bcc28a09aa5fff2",
-                "reference": "daedbbfede0f33d45e45392d7bcc28a09aa5fff2",
+                "url": "https://api.github.com/repos/SeraphaLab/Framework/zipball/ad910de3b0353a6aac3082709f1f5d4fd0052ca9",
+                "reference": "ad910de3b0353a6aac3082709f1f5d4fd0052ca9",
                 "shasum": ""
             },
             "require": {
@@ -1451,9 +1451,9 @@
             ],
             "support": {
                 "issues": "https://github.com/SeraphaLab/Framework/issues",
-                "source": "https://github.com/SeraphaLab/Framework/tree/1.1.25"
+                "source": "https://github.com/SeraphaLab/Framework/tree/1.1.26"
             },
-            "time": "2024-09-29T05:28:22+00:00"
+            "time": "2024-09-29T09:02:06+00:00"
         },
         {
             "name": "symfony/config",
