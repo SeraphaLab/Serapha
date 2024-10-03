@@ -10,8 +10,13 @@ class Uri
         return Utils::isRewriteEnabled();
     }
 
-    public static function getBasePath(): string
+    public static function getBasePath(int $levels = 2): string
     {
-        return dirname($_SERVER['PHP_SELF'], 2);
+        return Utils::getBasePath($levels);
+    }
+
+    public static function siteUrl(string $path = '/'): string
+    {
+        return Utils::generateUrl($path);
     }
 }
