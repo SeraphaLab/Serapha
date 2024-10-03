@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "2019316b078a85fc6cbf61106232b18f",
+    "content-hash": "1dbe5de3506d629c37181c4883fc10a1",
     "packages": [
         {
             "name": "cakephp/chronos",
@@ -1397,23 +1397,22 @@
         },
         {
             "name": "serapha/framework",
-            "version": "1.1.40",
+            "version": "1.2.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/SeraphaLab/Framework.git",
-                "reference": "6a1c2f15bdf8cbc7678496a58b93fe99641a2c0c"
+                "reference": "176d4473907aa4a681bfdbadaeb1e516d7bee4a4"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/SeraphaLab/Framework/zipball/6a1c2f15bdf8cbc7678496a58b93fe99641a2c0c",
-                "reference": "6a1c2f15bdf8cbc7678496a58b93fe99641a2c0c",
+                "url": "https://api.github.com/repos/SeraphaLab/Framework/zipball/176d4473907aa4a681bfdbadaeb1e516d7bee4a4",
+                "reference": "176d4473907aa4a681bfdbadaeb1e516d7bee4a4",
                 "shasum": ""
             },
             "require": {
                 "carry0987/i18n": "^2.0",
                 "carry0987/redis-tool": "^1.1",
                 "carry0987/sanite": "^1.1",
-                "carry0987/session-manager": "^1.0",
                 "carry0987/template-engine": "^1.0",
                 "carry0987/utils": "^1.0",
                 "httpsoft/http-message": "^1.1",
@@ -1451,9 +1450,9 @@
             ],
             "support": {
                 "issues": "https://github.com/SeraphaLab/Framework/issues",
-                "source": "https://github.com/SeraphaLab/Framework/tree/1.1.40"
+                "source": "https://github.com/SeraphaLab/Framework/tree/1.2.0"
             },
-            "time": "2024-10-03T09:09:41+00:00"
+            "time": "2024-10-03T09:20:48+00:00"
         },
         {
             "name": "symfony/config",
