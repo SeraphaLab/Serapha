@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "1dbe5de3506d629c37181c4883fc10a1",
+    "content-hash": "5d44e80d147e156073e9921d092731cc",
     "packages": [
         {
             "name": "cakephp/chronos",
@@ -67,16 +67,16 @@
         },
         {
             "name": "cakephp/core",
-            "version": "5.1.0",
+            "version": "5.1.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/cakephp/core.git",
-                "reference": "f0c9c3701ed092ea03654bfec74a4b62b00faa3f"
+                "reference": "2cf48ca0177fbf860f6295a0de08d6870a5a93af"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/cakephp/core/zipball/f0c9c3701ed092ea03654bfec74a4b62b00faa3f",
-                "reference": "f0c9c3701ed092ea03654bfec74a4b62b00faa3f",
+                "url": "https://api.github.com/repos/cakephp/core/zipball/2cf48ca0177fbf860f6295a0de08d6870a5a93af",
+                "reference": "2cf48ca0177fbf860f6295a0de08d6870a5a93af",
                 "shasum": ""
             },
             "require": {
@@ -125,20 +125,20 @@
                 "issues": "https://github.com/cakephp/cakephp/issues",
                 "source": "https://github.com/cakephp/core"
             },
-            "time": "2024-09-06T12:23:52+00:00"
+            "time": "2024-09-24T13:09:59+00:00"
         },
         {
             "name": "cakephp/database",
-            "version": "5.1.0",
+            "version": "5.1.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/cakephp/database.git",
-                "reference": "acec75fc244a5154e8b7a661ef9d3c0fef86c385"
+                "reference": "077377de79298ce61b1e325a7be47bd65ebae0ba"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/cakephp/database/zipball/acec75fc244a5154e8b7a661ef9d3c0fef86c385",
-                "reference": "acec75fc244a5154e8b7a661ef9d3c0fef86c385",
+                "url": "https://api.github.com/repos/cakephp/database/zipball/077377de79298ce61b1e325a7be47bd65ebae0ba",
+                "reference": "077377de79298ce61b1e325a7be47bd65ebae0ba",
                 "shasum": ""
             },
             "require": {
@@ -187,11 +187,11 @@
                 "issues": "https://github.com/cakephp/cakephp/issues",
                 "source": "https://github.com/cakephp/database"
             },
-            "time": "2024-09-12T14:55:57+00:00"
+            "time": "2024-10-03T07:25:02+00:00"
         },
         {
             "name": "cakephp/datasource",
-            "version": "5.1.0",
+            "version": "5.1.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/cakephp/datasource.git",
@@ -253,7 +253,7 @@
         },
         {
             "name": "cakephp/utility",
-            "version": "5.1.0",
+            "version": "5.1.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/cakephp/utility.git",
@@ -572,16 +572,16 @@
         },
         {
             "name": "carry0987/template-engine",
-            "version": "1.3.10",
+            "version": "1.3.11",
             "source": {
                 "type": "git",
                 "url": "https://github.com/carry0987/TemplateEngine.git",
-                "reference": "29365191a9c98fac6fdac0ee0be29bbf62c93cea"
+                "reference": "8bfc17235d888c8003bcf61d557e97d0a4dd57cb"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/carry0987/TemplateEngine/zipball/29365191a9c98fac6fdac0ee0be29bbf62c93cea",
-                "reference": "29365191a9c98fac6fdac0ee0be29bbf62c93cea",
+                "url": "https://api.github.com/repos/carry0987/TemplateEngine/zipball/8bfc17235d888c8003bcf61d557e97d0a4dd57cb",
+                "reference": "8bfc17235d888c8003bcf61d557e97d0a4dd57cb",
                 "shasum": ""
             },
             "require": {
@@ -613,9 +613,9 @@
             ],
             "support": {
                 "issues": "https://github.com/carry0987/TemplateEngine/issues",
-                "source": "https://github.com/carry0987/TemplateEngine/tree/1.3.10"
+                "source": "https://github.com/carry0987/TemplateEngine/tree/1.3.11"
             },
-            "time": "2024-09-23T13:59:56+00:00"
+            "time": "2024-10-09T10:29:04+00:00"
         },
         {
             "name": "carry0987/utils",
@@ -1310,16 +1310,16 @@
         },
         {
             "name": "robmorgan/phinx",
-            "version": "0.16.4",
+            "version": "0.16.5",
             "source": {
                 "type": "git",
                 "url": "https://github.com/cakephp/phinx.git",
-                "reference": "0ef61fc10395dc25ab37c45125a5be5d6231299c"
+                "reference": "31d837c17d6dc294d44f0b17331066548ac8c032"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/cakephp/phinx/zipball/0ef61fc10395dc25ab37c45125a5be5d6231299c",
-                "reference": "0ef61fc10395dc25ab37c45125a5be5d6231299c",
+                "url": "https://api.github.com/repos/cakephp/phinx/zipball/31d837c17d6dc294d44f0b17331066548ac8c032",
+                "reference": "31d837c17d6dc294d44f0b17331066548ac8c032",
                 "shasum": ""
             },
             "require": {
@@ -1391,22 +1391,22 @@
             ],
             "support": {
                 "issues": "https://github.com/cakephp/phinx/issues",
-                "source": "https://github.com/cakephp/phinx/tree/0.16.4"
+                "source": "https://github.com/cakephp/phinx/tree/0.16.5"
             },
-            "time": "2024-09-25T16:10:29+00:00"
+            "time": "2024-10-03T15:41:04+00:00"
         },
         {
             "name": "serapha/framework",
-            "version": "1.2.0",
+            "version": "1.2.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/SeraphaLab/Framework.git",
-                "reference": "176d4473907aa4a681bfdbadaeb1e516d7bee4a4"
+                "reference": "191a9f2bd8b13a219b9dcac8d36b1f428a75b6f9"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/SeraphaLab/Framework/zipball/176d4473907aa4a681bfdbadaeb1e516d7bee4a4",
-                "reference": "176d4473907aa4a681bfdbadaeb1e516d7bee4a4",
+                "url": "https://api.github.com/repos/SeraphaLab/Framework/zipball/191a9f2bd8b13a219b9dcac8d36b1f428a75b6f9",
+                "reference": "191a9f2bd8b13a219b9dcac8d36b1f428a75b6f9",
                 "shasum": ""
             },
             "require": {
@@ -1450,9 +1450,9 @@
             ],
             "support": {
                 "issues": "https://github.com/SeraphaLab/Framework/issues",
-                "source": "https://github.com/SeraphaLab/Framework/tree/1.2.0"
+                "source": "https://github.com/SeraphaLab/Framework/tree/1.2.1"
             },
-            "time": "2024-10-03T09:20:48+00:00"
+            "time": "2024-10-09T10:30:19+00:00"
         },
         {
             "name": "symfony/config",
