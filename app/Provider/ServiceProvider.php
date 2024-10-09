@@ -30,7 +30,7 @@ class ServiceProvider extends Provider
 
         // Set the session
         $this->container->singleton(SessionManager::class, function () {
-            $session = new SessionManager(Utils::xxHash(Utils::getBasePath(0)), [
+            $session = new SessionManager('Session-'.Utils::xxHash(Utils::getBasePath(0)), [
                 'path' => Utils::trimPath(Utils::getBasePath().'/'),
                 'secure' => Utils::checkHttps(),
                 'samesite' => 'Strict'
