@@ -17,7 +17,7 @@ abstract class BaseController extends Controller
         $this->session = $session;
 
         $this->template->setOption([
-            'template_dir' => dirname(__DIR__).'/View',
+            'template_dir' => dirname(__DIR__, 2).'/resource/view',
             'cache_dir' => '../storage/cache/template',
             'css_dir' => 'asset/css',
             'js_dir' => 'asset/js',
