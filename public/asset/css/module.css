@@ -1,0 +1,29 @@
+/*[index]*/
+.header {
+    display: block;
+}
+
+.link {
+    color: blue;
+}
+/*[/index]*/
+
+/*[test]*/
+.header {
+    display: inline-block;
+}
+
+.link {
+    color: red;
+}
+/*[/test]*/
+
+/*[category]*/
+.header {
+    display: none;
+}
+
+.link {
+    color: white;
+}
+/*[/category]*/

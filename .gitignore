@@ -22,6 +22,8 @@ vendor/
 .env.local
 
 # Cache
+public/cache/**/*.*
+!public/cache/index.html
 storage/**/*.*
 !storage/**/index.html
 

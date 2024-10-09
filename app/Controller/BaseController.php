@@ -20,6 +20,7 @@ abstract class BaseController extends Controller
             'template_dir' => dirname(__DIR__, 2).'/resource/view',
             'cache_dir' => '../storage/cache/template',
             'css_dir' => 'asset/css',
+            'css_cache_dir' => '../public/cache',
             'js_dir' => 'asset/js',
             'static_dir' => 'asset',
             'auto_update' => true
