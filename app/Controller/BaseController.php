@@ -26,8 +26,9 @@ abstract class BaseController extends Controller
             'auto_update' => true
         ]);
 
+        // Set the asset path
         $this->template->assetPath(function (string $path) {
-            return Uri::inRewriteMode() ? '/'.$path : $path;
+            return preg_replace('/^..\/public\//', '', $path, 1);
         });
 
         // Set the global data for Template
