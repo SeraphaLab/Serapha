@@ -1,9 +1,0 @@
-{
-    "packages": {
-        ".": {
-            "release-type": "php",
-            "include-v-in-tag": false,
-            "include-v-in-release-name": false
-        }
-    }
-}
