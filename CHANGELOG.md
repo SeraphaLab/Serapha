@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.3.4](https://github.com/SeraphaLab/Serapha/compare/v0.3.3...v0.3.4) (2026-08-08)
+
+
+### Bug Fixes
+
+* **pnpm:** Update packages ([509f843](https://github.com/SeraphaLab/Serapha/commit/509f843edc877e5d92a00e92978f050e5db444e3))
+
 ## [0.3.3](https://github.com/SeraphaLab/Serapha/compare/0.3.2...v0.3.3) (2026-08-08)
 
 
