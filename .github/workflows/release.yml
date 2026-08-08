@@ -1,88 +1,25 @@
-name: Create Release
+name: Release
 
 on:
   push:
-    tags:
-      - '*' # Push events to matching *, i.e. 1.0, 20.15.10
+    branches: [main, master]
+
+permissions:
+  contents: write
+  pull-requests: write
 
 jobs:
-  release-note:
+  release-please:
     runs-on: ubuntu-latest
     outputs:
-      version: ${{ env.VERSION }}
-      is_prerelease: ${{ env.IS_PRERELEASE }}
-      message: ${{ env.TAG_MESSAGE }}
+      release_created: ${{ steps.release.outputs.release_created }}
+      tag_name: ${{ steps.release.outputs.tag_name }}
+      version: ${{ steps.release.outputs.version }}
+      sha: ${{ steps.release.outputs.sha }}
+      body: ${{ steps.release.outputs.body }}
     steps:
-      - name: Check out the repo
-        uses: actions/checkout@v6
+      - uses: googleapis/release-please-action@v5
+        id: release
         with:
-          ref: ${{ github.ref_name }}
-          fetch-depth: 0 # Fetch all history for all tags and branches
-
-      - name: Get Release Notes
-        run: |
-          TAG_MESSAGE=$(git tag -l --format="%(contents:subject)" ${{ github.ref_name }})
-          echo "Release message: "$TAG_MESSAGE
-          echo "TAG_MESSAGE=$TAG_MESSAGE" >> $GITHUB_ENV
-
-      - name: Get update version and check prerelease
-        run: |
-          VERSION=${GITHUB_REF#refs/tags/}
-          echo "New version: $VERSION"
-          echo "VERSION=$VERSION" >> $GITHUB_ENV
-
-          # Check if version starts with "0"
-          if [[ $VERSION == 0* ]]; then
-            IS_PRERELEASE=true
-          else
-            IS_PRERELEASE=false
-          fi
-          echo "IS_PRERELEASE=$IS_PRERELEASE" >> $GITHUB_ENV
-
-  commit:
-    needs: release-note
-    runs-on: ubuntu-latest
-    permissions:
-      contents: write
-    steps:
-      - name: Check out the repo
-        uses: actions/checkout@v6
-        with:
-          ref: ${{ github.event.repository.default_branch }}
-          fetch-depth: 0 # Fetch all history for all tags and branches
-
-      - name: Update version for repository
-        run: |
-          VERSION=${{ needs.release-note.outputs.version }}
-          echo "Dump version to $VERSION"
-          sed -i 's/"version": ".*"/"version": "'$VERSION'"/' composer.json
-
-      - name: Commit changes
-        uses: EndBug/add-and-commit@v9
-        with:
-          message: 'Update version to v${{ needs.release-note.outputs.version }}'
-          add: '.'
-          author_name: GitHub Actions
-          author_email: actions@github.com
-          committer_name: GitHub Actions
-
-  build:
-    needs: [commit, release-note]
-    runs-on: ubuntu-latest
-    permissions:
-      contents: write
-    steps:
-      - name: Checkout code
-        uses: actions/checkout@v6
-
-      - name: Create Release
-        uses: ncipollo/release-action@v1
-        with:
-          token: ${{ secrets.GITHUB_TOKEN }}
-          tag: ${{ needs.release-note.outputs.version }}
-          name: ${{ needs.release-note.outputs.version }}
-          body: |
-            ${{ needs.release-note.outputs.message }}
-          draft: false
-          prerelease: ${{ needs.release-note.outputs.is_prerelease }}
-          omitDraftDuringUpdate: true
+          config-file: .github/release-please-config.json
+          manifest-file: .github/.release-please-manifest.json
