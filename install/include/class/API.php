@@ -5,10 +5,12 @@ use Install\Installer;
 
 class API
 {
-    private static $system;
-    private static $config;
-    private static $param = array();
-    private static $request = array(
+    private static array $system;
+    private static array $config;
+    private static array $param = array();
+
+    /** @var array<string, array> */
+    private static array $request = array(
         self::REQUEST_GET => array(),
         self::REQUEST_POST => array()
     );
@@ -25,7 +27,7 @@ class API
         self::$system = $value;
     }
 
-    public static function getSystem(string $key = null)
+    public static function getSystem(?string $key = null)
     {
         return $key ? self::$system[$key] : self::$system;
     }
@@ -35,7 +37,7 @@ class API
         self::$param[$key] = $value;
     }
 
-    public static function getParam(string $key = null)
+    public static function getParam(?string $key = null)
     {
         return $key ? self::$param[$key] : self::$param;
     }
@@ -55,20 +57,16 @@ class API
             switch ($data['request']) {
                 case 'get_language':
                     return array('lang' => self::$param['lang']->getLangs());
-                    break;
                 case 'get_language_list':
                     return self::$system['lang_list'];
-                    break;
                 case 'set_language':
                     return self::$param['lang']->setLanguage($data['lang'], self::$system['https']);
-                    break;
                 case 'check_installed':
                     $config = array(
                         'root_path' => self::$param['root_path']
                     );
                     $installer = new Installer(self::$param['lang'], null, $config);
                     return $installer->checkInstalled();
-                    break;
                 case 'start_install':
                     $config = array(
                         'root_path' => self::$param['root_path'],
@@ -81,7 +79,6 @@ class API
                     } catch (\Exception $e) {
                         return array('status' => false, 'message' => $e->getMessage());
                     }
-                    break;
             }
         }
     }
@@ -91,9 +88,10 @@ class API
         self::$config = $value;
     }
 
-    public static function getConfig(string $key = '')
+    public static function getConfig(?string $key = null)
     {
         if (empty($key)) return self::$config;
+
         return (isset(self::$config[$key])) ? self::$config[$key] : null;
     }
 }

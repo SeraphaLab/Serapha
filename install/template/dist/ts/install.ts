@@ -1,7 +1,9 @@
+import $ from 'jquery';
 import Utils from '@carry0987/utils-full';
 import Swal, { SweetAlertResult } from 'sweetalert2';
 import { LanguageData, CallbackOnSuccess, CallbackOnError, SwalConfig, PopupOptions } from './type/types';
 
+type JQueryElement = ReturnType<typeof $>;
 
 // Check library usable
 if (!Utils) throw new Error('Utils not found');
@@ -23,7 +25,7 @@ class InstallHelper {
         $(target).html(message);
     }
 
-    private checkInput = ($element: JQuery, value: string): boolean => {
+    private checkInput = ($element: JQueryElement, value: string): boolean => {
         const element = $element.val()?.toString().trim();
 
         if (!element) {
@@ -35,7 +37,7 @@ class InstallHelper {
         return true;
     }
 
-    private checkPasswordLength = ($element: JQuery, value: string): boolean => {
+    private checkPasswordLength = ($element: JQueryElement, value: string): boolean => {
         const password = $element.val()?.toString().trim();
 
         if (!password || password.length < 8) {
@@ -47,7 +49,7 @@ class InstallHelper {
         return true;
     }
 
-    private checkPasswordConfirmation = ($password: JQuery, $confirmPassword: JQuery, message: string): boolean => {
+    private checkPasswordConfirmation = ($password: JQueryElement, $confirmPassword: JQueryElement, message: string): boolean => {
         if ($password.val() !== $confirmPassword.val()) {
             this.showMsg(false, message);
             return false;
@@ -58,15 +60,16 @@ class InstallHelper {
     }
 
     private validateInputs = (): void => {
-        const $inputs: JQuery = $('#install input').not('[type="submit"]');
+        const $inputs: JQueryElement = $('#install input').not('[type="submit"]');
         const isDisplayEmpty: boolean = $('#display > span').is(':empty');
         const isEmpty: boolean = $inputs.toArray().some(input => { 
             return !(input as HTMLInputElement).value.trim().length; 
         });
 
-        $inputs.each((index, element) => {
-            const $input: JQuery = $(element);
-            if (!(element as HTMLInputElement).value.trim().length) {
+        $inputs.each((_index, element) => {
+            const inputElement: HTMLInputElement = element as HTMLInputElement;
+            const $input: JQueryElement = $(inputElement);
+            if (!inputElement.value.trim().length) {
                 $input.addClass('bg-danger-subtle');
             } else {
                 $input.removeClass('bg-danger-subtle');

@@ -1,7 +1,4 @@
-import { RollupOptions, OutputOptions, watch, rollup } from 'rollup';
-import typescript from '@rollup/plugin-typescript';
-import terser from '@rollup/plugin-terser';
-import resolve from '@rollup/plugin-node-resolve';
+import { InputOptions, OutputOptions, RolldownWatcherEvent, watch, rolldown } from 'rolldown';
 import path from 'path';
 import { deleteAsync } from 'del';
 
@@ -9,6 +6,7 @@ const isProduction: boolean = process.env.BUILD === 'production';
 const isWatch: boolean = process.env.BUILD === 'watch';
 const globals: Record<string, string> = {
     '@carry0987/utils-full': 'Utils',
+    'jquery': 'jQuery',
     'sweetalert2': 'Swal',
     'select2': 'Select2'
 };
@@ -24,20 +22,19 @@ function getCurrentTimestamp(): string {
 }
 
 function determineExternal(id: string): boolean {
-    const externalLibs: string[] = ['@carry0987/', 'sweetalert', 'select2'];
+    const externalLibs: string[] = ['@carry0987/', 'jquery', 'sweetalert', 'select2'];
     const internalLibs: string[] = ['@carry0987/utils'];
 
     return externalLibs.some(lib => id.startsWith(lib)) && !internalLibs.some(lib => id.endsWith(lib));
 }
 
-function getRollupOptions(file: string): RollupOptions {
+function getRolldownOptions(file: string): InputOptions {
     return {
         input: path.join('template', 'dist', 'ts', file),
-        plugins: [
-            typescript({ tsconfig: './tsconfig.json' }),
-            resolve(),
-            isProduction && terser()
-        ],
+        tsconfig: './tsconfig.json',
+        resolve: {
+            extensions: ['.ts', '.tsx', '.js', '.jsx', '.json']
+        },
         external: determineExternal
     };
 }
@@ -48,6 +45,7 @@ function getOutputOptions(file: string): OutputOptions {
         file: outputPath,
         format: 'umd',
         name: 'InstallHelper',
+        minify: isProduction,
         sourcemap: false,
         globals: globals
     };
@@ -55,20 +53,20 @@ function getOutputOptions(file: string): OutputOptions {
 
 async function buildFile(file: string, watchMode: boolean = false): Promise<void> {
     console.log(`[${getCurrentTimestamp()}] Building ${file}...`);
-    const rollupOptions: RollupOptions = getRollupOptions(file);
+    const rolldownOptions: InputOptions = getRolldownOptions(file);
     const outputOptions: OutputOptions = getOutputOptions(file);
     if (watchMode) {
         activeWatcher = watch({
-            ...rollupOptions,
+            ...rolldownOptions,
             output: [outputOptions],
         });
-        activeWatcher.on('event', (event) => {
+        activeWatcher.on('event', (event: RolldownWatcherEvent) => {
             if (event.code === 'END') {
                 console.log(`[${getCurrentTimestamp()}] Rebuilt ${file}`);
             }
         });
     } else {
-        const bundle = await rollup(rollupOptions);
+        const bundle = await rolldown(rolldownOptions);
         await bundle.write(outputOptions);
         await deleteAsync(['dist/js/interface', 'dist/js/type']);
     }

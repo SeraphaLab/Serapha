@@ -10,14 +10,14 @@ use PDO;
 class Installer
 {
     protected Sanite $sanite;
-    protected $lang;
-    protected $data;
-    protected $config;
-    protected $webLang;
-    protected $adminUsername;
-    protected $adminPassword;
-    protected $adminPswConfirm;
-    protected static $userQuery = 'INSERT INTO user (username, password, group_id, language, last_login, join_date) VALUES (:username, :password, :group_id, :language, :last_login, :join_date)';
+    protected Language $lang;
+    protected ?array $data;
+    protected array $config;
+    protected string $webLang;
+    protected string $adminUsername;
+    protected string $adminPassword;
+    protected string $adminPswConfirm;
+    protected static string $userQuery = 'INSERT INTO user (username, password, group_id, language, last_login, join_date) VALUES (:username, :password, :group_id, :language, :last_login, :join_date)';
 
     const DIR_SEP = DIRECTORY_SEPARATOR;
     const CONFIG_ROOT = __DIR__.'/../../';
@@ -111,7 +111,7 @@ class Installer
         return $error_info;
     }
 
-    public static function generateFile(string $file, $content)
+    public static function generateFile(string $file, mixed $content)
     {
         $file = self::trimPath($file);
         try {
@@ -126,7 +126,7 @@ class Installer
         return true;
     }
 
-    public static function showErrorMsg($e)
+    public static function showErrorMsg(\Throwable $e)
     {
         $msg = '<h1>Service unavailable</h1>'."\n";
         $msg .= '<br/>';

@@ -2,13 +2,16 @@
     "compilerOptions": {
         "module": "ESNext",
         "target": "ESNext",
-        "moduleResolution": "node",
+        "moduleResolution": "bundler",
         "importHelpers": true,
         "strict": true,
         "esModuleInterop": true,
         "declaration": false,
+        "rootDir": "template/dist/ts",
         "outDir": "template/dist/js",
-        "baseUrl": "."
+        "isolatedModules": true,
+        "types": ["node", "jquery"],
+        "noEmit": true
     },
     "include": [
         "template/dist/ts/**/*.ts"

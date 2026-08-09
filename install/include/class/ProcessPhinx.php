@@ -5,8 +5,8 @@ use Phinx\Console\PhinxApplication;
 use Phinx\Wrapper\TextWrapper;
 
 class ProcessPhinx {
-    private $wrapper;
-    private $output = null;
+    private TextWrapper $wrapper;
+    private ?string $output = null;
 
     public function __construct(string $phinxConfig) {
         // Initialize Phinx application and wrapper

@@ -6,7 +6,7 @@ use carry0987\I18n\I18n;
 class Language
 {
     private $path = '/';
-    private static $lang;
+    private static I18n $lang;
 
     public function __construct(array $config)
     {
@@ -26,7 +26,7 @@ class Language
         self::$lang = new I18n($config);
     }
 
-    private function setCookie($lang, $security)
+    private function setCookie(string $lang, bool $security)
     {
         $domain = (string) null;
 
@@ -43,7 +43,7 @@ class Language
         return self::$lang->fetchLangList();
     }
 
-    public function getLinks($params = array())
+    public function getLinks(array $params = array())
     {
         $query_url = '';
         if (!empty($params) === true) {
@@ -91,7 +91,7 @@ class Language
         return self::$lang->fetchCurrentLang();
     }
 
-    public function setLanguage($get_lang, $get_security)
+    public function setLanguage(string|int $get_lang, bool $get_security)
     {
         foreach (self::$lang->getLangAlias() as $key => $value) {
             if ($get_lang === $key) {

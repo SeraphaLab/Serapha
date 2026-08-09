@@ -12,6 +12,6 @@ PluginManager.removeDirs([
     'plugins/object.assign',
     'plugins/@carry0987/plugin-manager',
     'plugins/@carry0987/utils',
-    'plugins/@rollup',
-    'plugins/rollup',
+    'plugins/@rolldown',
+    'plugins/rolldown',
 ]);
