@@ -1,17 +1,25 @@
 import { PluginManager } from '@carry0987/plugin-manager';
 
-// Clean and copy the necessary files
-PluginManager.cleanDir('node_modules', 'plugins');
-PluginManager.copyDistFolders('node_modules', 'plugins');
-PluginManager.clearUnnecessaryFiles('plugins/bootstrap', ['**/bootstrap.bundle.min.js', '**/bootstrap.min.css']);
-PluginManager.clearUnnecessaryFiles('plugins/jquery', ['**/jquery.min.js']);
-PluginManager.clearUnnecessaryFiles('plugins/select2', ['**/select2.min.js', '**/select2.min.css']);
-PluginManager.clearUnnecessaryFiles('plugins/sweetalert2', ['**/sweetalert2.min.js', '**/sweetalert2.min.css']);
-PluginManager.clearEmptyDirs('plugins');
-PluginManager.removeDirs([
-    'plugins/object.assign',
-    'plugins/@carry0987/plugin-manager',
-    'plugins/@carry0987/utils',
-    'plugins/@rolldown',
-    'plugins/rolldown',
-]);
+PluginManager.emptyDir('template/plugins', { verbose: true });
+PluginManager.copyPackages('node_modules', 'template/plugins', [
+    {
+        name: '@carry0987/utils-full',
+        include: ['**/utils-full.min.js', '**/utils-full.esm.js']
+    },
+    {
+        name: 'bootstrap',
+        include: ['**/bootstrap.min.js', '**/bootstrap.min.css']
+    },
+    {
+        name: 'jquery',
+        include: ['**/jquery.min.js']
+    },
+    {
+        name: 'select2',
+        include: ['**/select2.min.js', '**/select2.min.css']
+    },
+    {
+        name: 'sweetalert2',
+        include: ['**/sweetalert2.min.js', '**/sweetalert2.min.css']
+    }
+], { verbose: true });

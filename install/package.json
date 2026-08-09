@@ -14,7 +14,7 @@
     "dist": "pnpm dlx tsx template/dist/pluginManager.ts"
   },
   "devDependencies": {
-    "@carry0987/plugin-manager": "^1.2.0",
+    "@carry0987/plugin-manager": "^2.0.3",
     "@carry0987/utils": "^3.10.3",
     "@types/jquery": "^4.0.1",
     "@types/node": "^26.2.0",

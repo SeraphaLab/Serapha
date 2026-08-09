@@ -25,8 +25,8 @@ importers:
         version: 11.26.25
     devDependencies:
       '@carry0987/plugin-manager':
-        specifier: ^1.2.0
-        version: 1.2.0
+        specifier: ^2.0.3
+        version: 2.0.3
       '@carry0987/utils':
         specifier: ^3.10.3
         version: 3.10.3
@@ -57,8 +57,8 @@ importers:
 
 packages:
 
-  '@carry0987/plugin-manager@1.2.0':
-    resolution: {integrity: sha512-90WK6idnR+ULzZtfG2B5b81l6doshILbg68Qbpg4yzZTvp6Bu4YIrLMzNlu6426f4Pmm/+oGYDbKLMLokIFxMQ==}
+  '@carry0987/plugin-manager@2.0.3':
+    resolution: {integrity: sha512-pP42REx2d6ol5C3oqoaE++tifE6C4jYaD1ecjefk/LF2fTnicQTvZNpCEy44Dkcc5QqKAgj+TiOtiEcQkxUxfw==}
 
   '@carry0987/utils-full@1.7.3':
     resolution: {integrity: sha512-rGFAFTe2je9MnX3/BwsUAySMZ8SAa+cvazPVlRNZ7hwp37Vp49Y0KKyefvRzHdXRUgRpW/TV/2t2fsNIUQmHzA==}
@@ -969,7 +969,7 @@ packages:
 
 snapshots:
 
-  '@carry0987/plugin-manager@1.2.0':
+  '@carry0987/plugin-manager@2.0.3':
     dependencies:
       '@types/micromatch': 4.0.10
       micromatch: 4.0.8

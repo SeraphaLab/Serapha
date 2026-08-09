@@ -1,4 +1,4 @@
-const version = '3.7.3';
+const version = '3.10.3';
 
 function reportError(...error) {
     console.error(...error);
@@ -134,6 +134,21 @@ function findChilds(ele, selector, maxDepth = Infinity) {
     recursiveFind(ele, 0);
     return results;
 }
+function templateToHtml(templateElem) {
+    let sourceElem;
+    // Check the type of templateElem
+    if (templateElem instanceof HTMLTemplateElement) {
+        // If it's a HTMLTemplateElement, proceed with cloning content
+        sourceElem = templateElem.content.cloneNode(true);
+    }
+    else {
+        // If it's a DocumentFragment, proceed with cloning content
+        sourceElem = templateElem;
+    }
+    const tempDiv = document.createElement('div');
+    tempDiv.appendChild(sourceElem);
+    return tempDiv.innerHTML;
+}
 
 var domUtils = /*#__PURE__*/Object.freeze({
     __proto__: null,
@@ -150,6 +165,7 @@ var domUtils = /*#__PURE__*/Object.freeze({
     insertAfter: insertAfter,
     insertBefore: insertBefore,
     removeClass: removeClass,
+    templateToHtml: templateToHtml,
     toggleClass: toggleClass
 });
 
@@ -221,18 +237,11 @@ function deepMerge(target, ...sources) {
     return deepMerge(target, ...sources);
 }
 function shallowMerge(target, ...sources) {
-    sources.forEach(source => {
+    sources.forEach((source) => {
         if (source) {
-            Object.keys(source).forEach(key => {
+            Object.keys(source).forEach((key) => {
                 const targetKey = key;
-                const sourceValue = source[targetKey];
-                if (isObject(sourceValue) && typeof target[targetKey]?.constructor === 'function' && sourceValue instanceof target[targetKey].constructor) {
-                    // If the source value is an object and its constructor matches the target's constructor.
-                    target[targetKey] = Object.assign(Object.create(Object.getPrototypeOf(sourceValue), {}), sourceValue);
-                }
-                else {
-                    target[targetKey] = sourceValue;
-                }
+                target[targetKey] = source[targetKey];
             });
         }
     });
@@ -263,11 +272,7 @@ function shallowClone(obj) {
         for (const key in obj) {
             if (obj.hasOwnProperty(key)) {
                 const value = obj[key];
-                clone[key] = isObject(value)
-                    ? shallowClone(value)
-                    : isArray(value)
-                        ? [...value]
-                        : value;
+                clone[key] = isObject(value) ? shallowClone(value) : isArray(value) ? [...value] : value;
             }
         }
         return clone;
@@ -403,34 +408,173 @@ function generateUUID() {
         return v.toString(16);
     });
 }
+function isValidURL(url) {
+    try {
+        new URL(url); // Try to create a URL object
+        return true;
+    }
+    catch (_) {
+        return false; // If error, the URL is invalid
+    }
+}
 function getUrlParam(sParam, url = window.location.href) {
-    const isHashParam = sParam.startsWith('#');
-    let urlPart;
-    if (isHashParam) {
-        urlPart = url.substring(url.indexOf('#') + 1);
+    const searchPart = url.includes('#')
+        ? url.substring(url.indexOf('?'), url.indexOf('#'))
+        : url.substring(url.indexOf('?'));
+    const params = new URLSearchParams(searchPart);
+    const paramValue = params.get(sParam);
+    return paramValue === null ? null : decodeURIComponent(paramValue);
+}
+function getHashParam(sParam = null, url = window.location.href) {
+    const hashIndex = url.indexOf('#');
+    if (hashIndex === -1)
+        return null;
+    const hashPart = url.substring(hashIndex + 1);
+    // If sParam is null, return the plain hash fragment (first part before any '&' or '=')
+    if (sParam === null) {
+        // Check if it's a plain hash (no '=' in the first segment)
+        const firstSegment = hashPart.split('&')[0];
+        if (!firstSegment.includes('=')) {
+            return decodeURIComponent(firstSegment);
+        }
+        return null;
     }
-    else {
-        const searchPart = url.includes('#') ? url.substring(url.indexOf('?'), url.indexOf('#')) : url.substring(url.indexOf('?'));
-        urlPart = searchPart;
-    }
-    const params = new URLSearchParams(urlPart);
-    const paramName = isHashParam ? sParam.substring(1) : sParam;
-    const paramValue = params.get(paramName);
+    const params = new URLSearchParams(hashPart);
+    const paramValue = params.get(sParam);
     return paramValue === null ? null : decodeURIComponent(paramValue);
 }
 function setUrlParam(url, params, overwrite = true) {
-    const urlObj = new URL(url);
-    // Iterate over params object keys and set params
+    let originalUrl;
+    let ignoreArray = [];
+    // Determine if URLSource object is being used
+    if (typeof url === 'object') {
+        originalUrl = url.url; // Extract the URL string
+        if (Array.isArray(url.ignore)) {
+            ignoreArray = url.ignore.map((part) => {
+                return part.startsWith('?') || part.startsWith('&') ? part.substring(1) : part;
+            });
+        }
+        else if (typeof url.ignore === 'string') {
+            let part = url.ignore;
+            if (part.startsWith('?') || part.startsWith('&')) {
+                part = part.substring(1);
+            }
+            ignoreArray.push(part);
+        }
+    }
+    else {
+        originalUrl = url;
+    }
+    const urlObj = new URL(originalUrl);
+    // If params is null, remove all
+    if (params === null) {
+        urlObj.search = ''; // Remove all search params
+        return urlObj.toString();
+    }
+    // Extract search string
+    let searchString = urlObj.search.substring(1); // Remove the leading '?'
+    // Split the search string into parameters
+    const paramsList = searchString.length > 0 ? searchString.split('&') : [];
+    const ignoredParams = [];
+    const otherParams = [];
+    for (const param of paramsList) {
+        if (ignoreArray.includes(param)) {
+            ignoredParams.push(param);
+        }
+        else {
+            otherParams.push(param);
+        }
+    }
+    const urlSearchParams = new URLSearchParams(otherParams.join('&'));
+    // Process remaining logic to set params
     for (const [paramName, paramValue] of Object.entries(params)) {
-        // Convert paramValue to string, as URLSearchParams only accepts strings
         const valueStr = paramValue === null ? '' : String(paramValue);
-        // If overwrite is false and param already exists, skip setting it
-        if (!overwrite && urlObj.searchParams.has(paramName)) {
+        if (!overwrite && urlSearchParams.has(paramName)) {
             continue;
         }
-        // Set the parameter value
-        urlObj.searchParams.set(paramName, valueStr);
+        urlSearchParams.set(paramName, valueStr);
     }
+    const newSearchParams = ignoredParams.concat(urlSearchParams
+        .toString()
+        .split('&')
+        .filter((p) => p));
+    const finalSearchString = newSearchParams.join('&');
+    urlObj.search = finalSearchString ? '?' + finalSearchString : '';
+    return urlObj.toString();
+}
+function setHashParam(url, params = null, overwrite = true) {
+    let originalUrl;
+    let ignoreArray = [];
+    // Determine if URLSource object is being used
+    if (typeof url === 'object') {
+        originalUrl = url.url;
+        if (Array.isArray(url.ignore)) {
+            ignoreArray = url.ignore.map((part) => {
+                return part.startsWith('#') || part.startsWith('&') ? part.substring(1) : part;
+            });
+        }
+        else if (typeof url.ignore === 'string') {
+            let part = url.ignore;
+            if (part.startsWith('#') || part.startsWith('&')) {
+                part = part.substring(1);
+            }
+            ignoreArray.push(part);
+        }
+    }
+    else {
+        originalUrl = url;
+    }
+    const urlObj = new URL(originalUrl);
+    // If params is null, remove all hash params
+    if (params === null) {
+        urlObj.hash = '';
+        return urlObj.toString();
+    }
+    // If params is a string, set it as plain hash
+    if (typeof params === 'string') {
+        // Get existing ignored params if any
+        const hashString = urlObj.hash.substring(1);
+        const paramsList = hashString.length > 0 ? hashString.split('&') : [];
+        const ignoredParams = [];
+        for (const param of paramsList) {
+            if (ignoreArray.includes(param)) {
+                ignoredParams.push(param);
+            }
+        }
+        // Build final hash: ignored params + plain hash
+        const finalParts = ignoredParams.length > 0 ? [...ignoredParams, params] : [params];
+        urlObj.hash = '#' + finalParts.join('&');
+        return urlObj.toString();
+    }
+    // Extract hash string (remove leading '#')
+    let hashString = urlObj.hash.substring(1);
+    // Split the hash string into parameters
+    const paramsList = hashString.length > 0 ? hashString.split('&') : [];
+    const ignoredParams = [];
+    const otherParams = [];
+    for (const param of paramsList) {
+        if (ignoreArray.includes(param)) {
+            ignoredParams.push(param);
+        }
+        else {
+            otherParams.push(param);
+        }
+    }
+    const urlSearchParams = new URLSearchParams(otherParams.join('&'));
+    // Process remaining logic to set params
+    for (const [paramName, paramValue] of Object.entries(params)) {
+        const valueStr = paramValue === null ? '' : String(paramValue);
+        if (!overwrite && urlSearchParams.has(paramName)) {
+            continue;
+        }
+        urlSearchParams.set(paramName, valueStr);
+    }
+    const newHashParams = ignoredParams.concat(urlSearchParams
+        .toString()
+        .split('&')
+        .filter((p) => p));
+    const finalHashString = newHashParams.join('&');
+    urlObj.hash = finalHashString ? '#' + finalHashString : '';
     return urlObj.toString();
 }
 
@@ -441,10 +585,12 @@ function setLocalValue(key, value, stringify = true) {
     window.localStorage.setItem(key, value);
 }
 function getLocalValue(key, parseJson = true) {
-    let value = window.localStorage.getItem(key);
+    const value = window.localStorage.getItem(key);
+    if (value === null)
+        return null;
     if (parseJson) {
         try {
-            value = JSON.parse(value);
+            return JSON.parse(value);
         }
         catch (e) {
             reportError('Error while parsing stored json value: ', e);
@@ -462,10 +608,12 @@ function setSessionValue(key, value, stringify = true) {
     window.sessionStorage.setItem(key, value);
 }
 function getSessionValue(key, parseJson = true) {
-    let value = window.sessionStorage.getItem(key);
+    const value = window.sessionStorage.getItem(key);
+    if (value === null)
+        return null;
     if (parseJson) {
         try {
-            value = JSON.parse(value);
+            return JSON.parse(value);
         }
         catch (e) {
             reportError('Error while parsing stored json value: ', e);
@@ -570,6 +718,117 @@ var eventUtils = /*#__PURE__*/Object.freeze({
     removeEventListener: removeEventListener
 });
 
+/**
+ * Creates a throttled function that only invokes the provided function at most once
+ * per every wait milliseconds.
+ *
+ * @param fn - The function to throttle.
+ * @param wait - The number of milliseconds to throttle invocations to.
+ * @param options - Throttle options.
+ *
+ * @returns The new throttled function.
+ */
+function throttle(fn, wait = 100, options = { leading: false, trailing: true }) {
+    const { leading = false, trailing = true } = options;
+    let timeoutId;
+    let lastTime = leading ? 0 : performance.now();
+    let lastArgs;
+    const invokeFn = () => {
+        if (lastArgs) {
+            lastTime = performance.now();
+            fn(...lastArgs);
+            lastArgs = undefined;
+        }
+    };
+    return (...args) => {
+        const currentTime = performance.now();
+        lastArgs = args; // Always store the latest arguments
+        const elapsed = currentTime - lastTime;
+        if (elapsed >= wait) {
+            if (timeoutId !== undefined) {
+                clearTimeout(timeoutId);
+                timeoutId = undefined;
+            }
+            invokeFn();
+        }
+        else if (trailing && timeoutId === undefined) {
+            timeoutId = setTimeout(() => {
+                invokeFn();
+                timeoutId = undefined;
+            }, wait - elapsed);
+        }
+    };
+}
+/**
+ * Creates a debounced function that delays invocation until after wait milliseconds
+ * have elapsed since the last time the debounced function was invoked.
+ *
+ * @param fn - The function to debounce.
+ * @param wait - The number of milliseconds to delay.
+ * @param options - Debounce options.
+ *
+ * @returns A debounced function that returns a Promise resolving to the result of the original function.
+ */
+function debounce(fn, wait, options = { leading: false, trailing: true }) {
+    const { leading = false, trailing = true, maxWait } = options;
+    let timeoutId;
+    let lastInvokeTime = 0;
+    let lastCallTime = 0;
+    let lastArgs;
+    /** Collection of resolvers to prevent Promise hanging for cancelled calls */
+    let pendingResolvers = [];
+    const invokeFn = () => {
+        if (!lastArgs) {
+            // This should ideally never happen given the logic,
+            // but added for type safety and rigor.
+            throw new Error('Debounce invoked without arguments');
+        }
+        const result = fn(...lastArgs);
+        lastInvokeTime = performance.now();
+        // Resolve all pending promises with the latest result
+        const resolvers = [...pendingResolvers];
+        pendingResolvers = [];
+        for (const resolve of resolvers) {
+            resolve(result);
+        }
+        return result;
+    };
+    return (...args) => {
+        return new Promise((resolve) => {
+            const currentTime = performance.now();
+            const isFirstCallInBurst = timeoutId === undefined;
+            lastArgs = args;
+            pendingResolvers.push(resolve);
+            if (isFirstCallInBurst) {
+                lastCallTime = currentTime;
+            }
+            if (timeoutId !== undefined) {
+                clearTimeout(timeoutId);
+            }
+            // Execute immediately if leading and wait time has passed
+            if (leading && isFirstCallInBurst && (currentTime - lastInvokeTime > wait || lastInvokeTime === 0)) {
+                return invokeFn();
+            }
+            // Execute if maxWait is reached
+            if (maxWait !== undefined && currentTime - lastCallTime >= maxWait) {
+                return invokeFn();
+            }
+            timeoutId = setTimeout(() => {
+                timeoutId = undefined;
+                if (trailing) {
+                    invokeFn();
+                }
+            }, wait);
+        });
+    };
+}
+
+var executeUtils = /*#__PURE__*/Object.freeze({
+    __proto__: null,
+    debounce: debounce,
+    throttle: throttle
+});
+
 // Append form data
 function appendFormData(options, formData = new FormData()) {
     const { data, parentKey = '' } = options;
@@ -586,7 +845,7 @@ function appendFormData(options, formData = new FormData()) {
         }
         else {
             // Traverse object properties
-            Object.keys(data).forEach(key => {
+            Object.keys(data).forEach((key) => {
                 const value = data[key];
                 const formKey = parentKey ? `${parentKey}[${key}]` : key;
                 if (value !== null && typeof value === 'object') {
@@ -662,7 +921,10 @@ function bodyToURLParams(body) {
     else if (typeof body === 'object') {
         // Handle generic object by iterating over its keys
         Object.entries(body).forEach(([key, value]) => {
-            if (typeof value === 'string' || typeof value === 'number' || typeof value === 'boolean' || value === null) {
+            if (typeof value === 'string' ||
+                typeof value === 'number' ||
+                typeof value === 'boolean' ||
+                value === null) {
                 params[key] = value;
             }
             else {
@@ -694,11 +956,11 @@ async function doFetch(options) {
         cache: cache,
         credentials: credentials
     };
-    if (body !== null && method.toUpperCase() === 'GET') {
+    if (body && body !== null && method.toUpperCase() === 'GET') {
         const params = bodyToURLParams(body);
         requestURL = setUrlParam(typeof url === 'string' ? url : url.toString(), params, true);
     }
-    else if (body !== null && ['PUT', 'POST', 'DELETE'].includes(method.toUpperCase())) {
+    else if (body && body !== null && ['PUT', 'POST', 'DELETE'].includes(method.toUpperCase())) {
         let data = body;
         if (!(body instanceof FormData)) {
             data = JSON.stringify(body);
@@ -730,7 +992,7 @@ async function doFetch(options) {
             if (typeof success === 'function') {
                 // Clone the response and parse the clone
                 const clonedResponse = response.clone();
-                const responseData = await clonedResponse.json();
+                const responseData = (await clonedResponse.json());
                 success?.(responseData);
             }
         }
@@ -755,7 +1017,7 @@ async function sendData(options) {
         cache: cache,
         mode: mode,
         credentials: credentials,
-        body: (encode && method.toUpperCase() !== 'GET') ? encodeFormData(data) : data,
+        body: encode && method.toUpperCase() !== 'GET' ? encodeFormData(data) : data,
         beforeSend: beforeSend,
         success: success,
         error: error
@@ -772,7 +1034,7 @@ async function sendFormData(options) {
         cache: cache,
         mode: mode,
         credentials: credentials,
-        body: encodeFormData(data),
+        body: data ? encodeFormData(data) : null,
         beforeSend: beforeSend,
         success: success,
         error: error
@@ -799,7 +1061,7 @@ class Utils {
     constructor(extension) {
         Object.assign(this, extension);
     }
-    static version = '1.4.6';
+    static version = '1.7.3';
     static utilsVersion = version;
     static stylesheetId = stylesheetId;
     static replaceRule = {
@@ -828,8 +1090,11 @@ class Utils {
     static removeStylesheet = removeStylesheet;
     static generateRandom = generateRandom;
     static generateUUID = generateUUID;
+    static isValidURL = isValidURL;
     static getUrlParam = getUrlParam;
+    static getHashParam = getHashParam;
     static setUrlParam = setUrlParam;
+    static setHashParam = setHashParam;
     // domUtils
     static getElem = domUtils.getElem;
     static createElem = domUtils.createElem;
@@ -845,11 +1110,15 @@ class Utils {
     static hasChild = domUtils.hasChild;
     static findChild = domUtils.findChild;
     static findChilds = domUtils.findChilds;
+    static templateToHtml = domUtils.templateToHtml;
     // eventUtils
     static createEvent = eventUtils.createEvent;
     static dispatchEvent = eventUtils.dispatchEvent;
     static addEventListener = eventUtils.addEventListener;
     static removeEventListener = eventUtils.removeEventListener;
+    // executeUtils
+    static debounce = executeUtils.debounce;
+    static throttle = executeUtils.throttle;
     // storageUtils
     static setLocalValue = storageUtils.setLocalValue;
     static getLocalValue = storageUtils.getLocalValue;
