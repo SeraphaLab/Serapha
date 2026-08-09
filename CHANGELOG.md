@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.3.5](https://github.com/SeraphaLab/Serapha/compare/v0.3.4...v0.3.5) (2026-08-09)
+
+
+### Bug Fixes
+
+* **install:** Update packages ([6a8cfa5](https://github.com/SeraphaLab/Serapha/commit/6a8cfa5b2186a5b3c7d4283f4137304f0391b313))
+
 ## [0.3.4](https://github.com/SeraphaLab/Serapha/compare/v0.3.3...v0.3.4) (2026-08-08)
 
 
