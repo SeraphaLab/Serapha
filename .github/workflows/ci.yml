@@ -23,13 +23,15 @@ jobs:
         working-directory: install
     steps:
       - name: Checkout repository
-        uses: actions/checkout@v4
+        uses: actions/checkout@v7
 
       - uses: pnpm/setup@v2
         with:
           version: 11
           runtime: node@22
           cache: true
+          package-json-file: install/package.json
+          cache-dependency-path: install/pnpm-lock.yaml
           install: false
 
       - name: Install dependencies
