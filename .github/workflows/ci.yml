@@ -1,0 +1,45 @@
+name: Install CI
+
+on:
+  pull_request:
+    paths:
+      - '.github/workflows/ci.yml'
+      - 'install/**'
+  push:
+    branches: [main, master]
+    paths:
+      - '.github/workflows/ci.yml'
+      - 'install/**'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  install-build:
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: install
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - uses: pnpm/setup@v2
+        with:
+          version: ^12.0.0
+          runtime: node@22
+          cache: true
+          install: false
+
+      - name: Install dependencies
+        run: pnpm install --frozen-lockfile
+
+      - name: Type check
+        run: pnpm exec tsc -p tsconfig.json --noEmit
+
+      - name: Build assets
+        run: pnpm run build
+
+      - name: Prepare dist assets
+        run: pnpm run dist
