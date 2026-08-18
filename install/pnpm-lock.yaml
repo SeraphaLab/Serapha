@@ -28,8 +28,8 @@ importers:
         specifier: ^2.0.3
         version: 2.0.3
       '@carry0987/utils':
-        specifier: ^3.10.3
-        version: 3.10.3
+        specifier: ^4.0.1
+        version: 4.0.1
       '@types/jquery':
         specifier: ^4.0.1
         version: 4.0.1
@@ -63,8 +63,8 @@ packages:
   '@carry0987/utils-full@1.7.3':
     resolution: {integrity: sha512-rGFAFTe2je9MnX3/BwsUAySMZ8SAa+cvazPVlRNZ7hwp37Vp49Y0KKyefvRzHdXRUgRpW/TV/2t2fsNIUQmHzA==}
 
-  '@carry0987/utils@3.10.3':
-    resolution: {integrity: sha512-gB/tH9gfs1T7NeDADzOB6bz2hfsIPxKarJQJXC8op0/YvJl1cJ9yjb7ApN9j11As1uoH0tYKx+Wza+EaHXbJpw==}
+  '@carry0987/utils@4.0.1':
+    resolution: {integrity: sha512-NvEb2YtauyKXAHQ77PewQOjPzB7/2pIAOCSeaSzW9ltXyXLkpaiEj2PcQuBq7KWZIIShbgHH+R4nM7sMWsq/yQ==}
 
   '@nodelib/fs.scandir@2.1.5':
     resolution: {integrity: sha512-vq24Bq3ym5HEQm2NKCr3yXDwjc7vTsEThRDnkp2DK9p1uqLR+DHurm/NOTo0KG7HYHU7eppKZj3MyqYuMBf62g==}
@@ -976,7 +976,7 @@ snapshots:
 
   '@carry0987/utils-full@1.7.3': {}
 
-  '@carry0987/utils@3.10.3': {}
+  '@carry0987/utils@4.0.1': {}
 
   '@nodelib/fs.scandir@2.1.5':
     dependencies:
