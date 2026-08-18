@@ -1,7 +1,7 @@
 {
   "type": "module",
   "dependencies": {
-    "@carry0987/utils-full": "^1.7.3",
+    "@carry0987/utils-full": "^2.0.1",
     "bootstrap": "^5.3.8",
     "jquery": "^4.0.0",
     "select2": "4.1.0",
