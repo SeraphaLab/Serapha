@@ -1,0 +1,64 @@
+{
+  "$schema": "https://biomejs.dev/schemas/2.5.14/schema.json",
+  "files": {
+    "ignoreUnknown": true,
+    "includes": [
+      "biome.json",
+      "package.json",
+      "tsconfig.json",
+      "language/**/*.json",
+      "include/**/*.html",
+      "language/**/*.html",
+      "template/**/*.html",
+      "template/dist/*.ts",
+      "template/dist/ts/**/*.ts",
+      "template/dist/css/**/*.css",
+      "!**/*.d.ts",
+      "!template/dist/js",
+      "!**/plugins"
+    ]
+  },
+  "formatter": {
+    "enabled": true,
+    "formatWithErrors": false,
+    "indentStyle": "space",
+    "indentWidth": 4,
+    "lineWidth": 120,
+    "attributePosition": "auto"
+  },
+  "linter": {
+    "enabled": false
+  },
+  "assist": {
+    "enabled": false
+  },
+  "javascript": {
+    "formatter": {
+      "quoteStyle": "single",
+      "trailingCommas": "all",
+      "bracketSameLine": true
+    }
+  },
+  "css": {
+    "parser": {
+      "allowWrongLineComments": true
+    },
+    "formatter": {
+      "enabled": true
+    }
+  },
+  "html": {
+    "formatter": {
+      "enabled": true,
+      "bracketSameLine": true
+    }
+  },
+  "overrides": [
+    {
+      "includes": ["biome.json", "package.json", "tsconfig.json"],
+      "formatter": {
+        "indentWidth": 2
+      }
+    }
+  ]
+}

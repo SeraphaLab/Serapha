@@ -6,9 +6,9 @@ const isProduction: boolean = process.env.BUILD === 'production';
 const isWatch: boolean = process.env.BUILD === 'watch';
 const globals: Record<string, string> = {
     '@carry0987/utils-full': 'Utils',
-    'jquery': 'jQuery',
-    'sweetalert2': 'Swal',
-    'select2': 'Select2'
+    jquery: 'jQuery',
+    sweetalert2: 'Swal',
+    select2: 'Select2',
 };
 let activeWatcher: ReturnType<typeof watch> | null = null;
 
@@ -25,7 +25,7 @@ function determineExternal(id: string): boolean {
     const externalLibs: string[] = ['@carry0987/', 'jquery', 'sweetalert', 'select2'];
     const internalLibs: string[] = ['@carry0987/utils'];
 
-    return externalLibs.some(lib => id.startsWith(lib)) && !internalLibs.some(lib => id.endsWith(lib));
+    return externalLibs.some((lib) => id.startsWith(lib)) && !internalLibs.some((lib) => id.endsWith(lib));
 }
 
 function getRolldownOptions(file: string): InputOptions {
@@ -33,9 +33,9 @@ function getRolldownOptions(file: string): InputOptions {
         input: path.join('template', 'dist', 'ts', file),
         tsconfig: './tsconfig.json',
         resolve: {
-            extensions: ['.ts', '.tsx', '.js', '.jsx', '.json']
+            extensions: ['.ts', '.tsx', '.js', '.jsx', '.json'],
         },
-        external: determineExternal
+        external: determineExternal,
     };
 }
 
@@ -47,7 +47,7 @@ function getOutputOptions(file: string): OutputOptions {
         name: 'InstallHelper',
         minify: isProduction,
         sourcemap: false,
-        globals: globals
+        globals: globals,
     };
 }
 

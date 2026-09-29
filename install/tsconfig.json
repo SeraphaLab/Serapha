@@ -1,20 +1,18 @@
 {
-    "compilerOptions": {
-        "module": "ESNext",
-        "target": "ESNext",
-        "moduleResolution": "bundler",
-        "importHelpers": true,
-        "strict": true,
-        "esModuleInterop": true,
-        "declaration": false,
-        "rootDir": "template/dist/ts",
-        "outDir": "template/dist/js",
-        "isolatedModules": true,
-        "types": ["node", "jquery"],
-        "noEmit": true
-    },
-    "include": [
-        "template/dist/ts/**/*.ts"
-    ],
-    "exclude": ["template/node_modules", "template/plugins"]
+  "compilerOptions": {
+    "module": "ESNext",
+    "target": "ESNext",
+    "moduleResolution": "bundler",
+    "importHelpers": true,
+    "strict": true,
+    "esModuleInterop": true,
+    "declaration": false,
+    "rootDir": "template/dist/ts",
+    "outDir": "template/dist/js",
+    "isolatedModules": true,
+    "types": ["node", "jquery"],
+    "noEmit": true
+  },
+  "include": ["template/dist/ts/**/*.ts"],
+  "exclude": ["template/node_modules", "template/plugins"]
 }

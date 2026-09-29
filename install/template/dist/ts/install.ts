@@ -23,7 +23,7 @@ class InstallHelper {
         const textNorm: string = `<span style='color: green'>`;
         const message: string = (isValid ? textNorm : textWarn) + msg + `</span>`;
         $(target).html(message);
-    }
+    };
 
     private checkInput = ($element: JQueryElement, value: string): boolean => {
         const element = $element.val()?.toString().trim();
@@ -35,7 +35,7 @@ class InstallHelper {
         this.showMsg(true, '');
 
         return true;
-    }
+    };
 
     private checkPasswordLength = ($element: JQueryElement, value: string): boolean => {
         const password = $element.val()?.toString().trim();
@@ -47,9 +47,13 @@ class InstallHelper {
         this.showMsg(true, '');
 
         return true;
-    }
+    };
 
-    private checkPasswordConfirmation = ($password: JQueryElement, $confirmPassword: JQueryElement, message: string): boolean => {
+    private checkPasswordConfirmation = (
+        $password: JQueryElement,
+        $confirmPassword: JQueryElement,
+        message: string,
+    ): boolean => {
         if ($password.val() !== $confirmPassword.val()) {
             this.showMsg(false, message);
             return false;
@@ -57,13 +61,13 @@ class InstallHelper {
         this.showMsg(true, '');
 
         return true;
-    }
+    };
 
     private validateInputs = (): void => {
         const $inputs: JQueryElement = $('#install input').not('[type="submit"]');
         const isDisplayEmpty: boolean = $('#display > span').is(':empty');
-        const isEmpty: boolean = $inputs.toArray().some(input => { 
-            return !(input as HTMLInputElement).value.trim().length; 
+        const isEmpty: boolean = $inputs.toArray().some((input) => {
+            return !(input as HTMLInputElement).value.trim().length;
         });
 
         $inputs.each((_index, element) => {
@@ -77,19 +81,30 @@ class InstallHelper {
         });
 
         $('#submit').prop('disabled', isEmpty || !isDisplayEmpty);
-    }
+    };
 
-    private async sendFormData(url: string, data: Record<string, any>, method = 'POST', success: CallbackOnSuccess, errorCallback: CallbackOnError): Promise<boolean> {
+    private async sendFormData(
+        url: string,
+        data: Record<string, any>,
+        method = 'POST',
+        success: CallbackOnSuccess,
+        errorCallback: CallbackOnError,
+    ): Promise<boolean> {
         return Utils.sendFormData({
             url: url,
             method: method,
             data: data,
             success: success,
-            error: errorCallback
+            error: errorCallback,
         });
     }
 
-    private fetchData = (data: any, resolveData: (response: any) => any, method: string = 'POST', parameter: string | null = null): Promise<any> => {
+    private fetchData = (
+        data: any,
+        resolveData: (response: any) => any,
+        method: string = 'POST',
+        parameter: string | null = null,
+    ): Promise<any> => {
         let url = 'api.php';
         if (parameter) {
             url += '?' + parameter;
@@ -105,10 +120,10 @@ class InstallHelper {
                 },
                 error: function (error: any) {
                     reject(error);
-                }
+                },
             });
         });
-    }
+    };
 
     private async showSwal(popupOptions: PopupOptions): Promise<SweetAlertResult> {
         const { title, text, html, beforeConfirm, callback, showLoading } = popupOptions;
@@ -125,13 +140,13 @@ class InstallHelper {
             showDenyButton: false,
             showConfirmButton: false,
             allowOutsideClick: !showLoading,
-            allowEscapeKey: !showLoading
+            allowEscapeKey: !showLoading,
         };
         swal_config = Utils.deepMerge({} as SwalConfig, swal_config, popupOptions);
         if (showLoading && !swal_config.didOpen) {
             swal_config.didOpen = () => {
                 Swal.showLoading();
-            }
+            };
         }
         const popResult = await Swal.fire(swal_config).then((result) => {
             if (beforeConfirm) beforeConfirm(result);
@@ -146,46 +161,52 @@ class InstallHelper {
 
     // Get language list
     private async langList(): Promise<LanguageData> {
-        return this.fetchData({ request: 'get_language' }, data => data['lang']);
+        return this.fetchData({ request: 'get_language' }, (data) => data['lang']);
     }
 
     private async checkInstalled(): Promise<void> {
         const formData = new FormData();
         const lang = await this.langList();
 
-        await this.sendFormData('api.php', { request: 'check_installed', data: formData }, 'POST', async (res: boolean) => {
-            Swal.hideLoading();
-            if (res === true) {
-                $('#install, #form-title').hide();
-                await this.showSwal({
-                    icon: 'error',
-                    text: lang['install']['installed'],
-                    showConfirmButton: true
-                }).then((result: any) => {
-                    if (result.isConfirmed) {
-                        window.location.href = InstallHelper.backURL;
-                    }
-                });
-            }
-        }, async (error: any) => {
-            await this.showSwal({title: 'Error', text: error, icon: 'error'});
-        });
+        await this.sendFormData(
+            'api.php',
+            { request: 'check_installed', data: formData },
+            'POST',
+            async (res: boolean) => {
+                Swal.hideLoading();
+                if (res === true) {
+                    $('#install, #form-title').hide();
+                    await this.showSwal({
+                        icon: 'error',
+                        text: lang['install']['installed'],
+                        showConfirmButton: true,
+                    }).then((result: any) => {
+                        if (result.isConfirmed) {
+                            window.location.href = InstallHelper.backURL;
+                        }
+                    });
+                }
+            },
+            async (error: any) => {
+                await this.showSwal({ title: 'Error', text: error, icon: 'error' });
+            },
+        );
     }
 
     private buildInputActions(): void {
         this.inputActions = {
-            'admin': {
+            admin: {
                 method: this.checkInput,
-                messageKey: 'username_empty'
+                messageKey: 'username_empty',
             },
-            'admin_psw': {
+            admin_psw: {
                 method: this.checkPasswordLength,
-                messageKey: 'password_rule'
+                messageKey: 'password_rule',
             },
-            'admin_psw_confirm': {
+            admin_psw_confirm: {
                 method: this.checkPasswordConfirmation,
-                messageKey: 'repassword_error'
-            }
+                messageKey: 'repassword_error',
+            },
         };
     }
 
@@ -225,7 +246,11 @@ class InstallHelper {
             this.validateInputs();
             const isUsernameValid = this.checkInput($('#admin'), lang['install']['username_empty']);
             const isPasswordValid = this.checkInput($('#admin_psw'), lang['install']['password_rule']);
-            const isPasswordConfirmValid = this.checkPasswordConfirmation($('#admin_psw'), $('#admin_psw_confirm'), lang['install']['repassword_error']);
+            const isPasswordConfirmValid = this.checkPasswordConfirmation(
+                $('#admin_psw'),
+                $('#admin_psw_confirm'),
+                lang['install']['repassword_error'],
+            );
             if (!isUsernameValid || !isPasswordValid || !isPasswordConfirmValid) {
                 return false;
             }
@@ -251,36 +276,45 @@ class InstallHelper {
                             willOpen: async () => {
                                 $('#install, #form-title').hide();
                                 formObject['request'] = 'start_install';
-                                await this.sendFormData('api.php', formObject, 'POST', function(res) {
-                                    Swal.hideLoading();
-                                    if (res['status'] === true) {
-                                        Swal.fire({
-                                            icon: 'success',
-                                            html: lang['install']['install_success']+'<br>'+lang['install']['install_remove'],
-                                        }).then((result) => {
-                                            if (result.isConfirmed) {
-                                                window.location.href = InstallHelper.backURL;
-                                            }
-                                        });
-                                    } else {
-                                        Swal.fire({
-                                            icon: 'error',
-                                            html: res['message']
-                                        }).then((result) => {
-                                            if (result.isConfirmed) {
-                                                window.location.reload();
-                                            }
-                                        });
-                                    }
-                                }, async (error: any) => {
-                                    await this.showSwal({title: 'Error', html: error, icon: 'error'});
-                                });
-                            }
+                                await this.sendFormData(
+                                    'api.php',
+                                    formObject,
+                                    'POST',
+                                    function (res) {
+                                        Swal.hideLoading();
+                                        if (res['status'] === true) {
+                                            Swal.fire({
+                                                icon: 'success',
+                                                html:
+                                                    lang['install']['install_success'] +
+                                                    '<br>' +
+                                                    lang['install']['install_remove'],
+                                            }).then((result) => {
+                                                if (result.isConfirmed) {
+                                                    window.location.href = InstallHelper.backURL;
+                                                }
+                                            });
+                                        } else {
+                                            Swal.fire({
+                                                icon: 'error',
+                                                html: res['message'],
+                                            }).then((result) => {
+                                                if (result.isConfirmed) {
+                                                    window.location.reload();
+                                                }
+                                            });
+                                        }
+                                    },
+                                    async (error: any) => {
+                                        await this.showSwal({ title: 'Error', html: error, icon: 'error' });
+                                    },
+                                );
+                            },
                         });
                     },
                     didClose: () => {
                         $('#install, #form-title').show();
-                    }
+                    },
                 });
             }
         });
