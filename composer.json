@@ -10,10 +10,10 @@
         }
     ],
     "require": {
-        "php": ">=8.1",
-        "serapha/framework": "^1.0",
-        "robmorgan/phinx": "^0.16.1",
-        "carry0987/config": "^1.0",
+        "php": ">=8.4.1",
+        "serapha/framework": "^1.2",
+        "robmorgan/phinx": "^0.16",
+        "carry0987/config": "^1.1",
         "carry0987/session-manager": "^1.0",
         "carry0987/restful": "^1.1"
     },
