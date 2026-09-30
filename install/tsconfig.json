@@ -10,7 +10,7 @@
     "rootDir": "template/dist/ts",
     "outDir": "template/dist/js",
     "isolatedModules": true,
-    "types": ["node", "jquery"],
+    "types": ["node", "jquery", "select2"],
     "noEmit": true
   },
   "include": ["template/dist/ts/**/*.ts"],

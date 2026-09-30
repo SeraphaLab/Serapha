@@ -9,8 +9,8 @@ importers:
   .:
     dependencies:
       '@carry0987/utils-full':
-        specifier: ^2.1.0
-        version: 2.1.0
+        specifier: ^2.1.2
+        version: 2.1.2
       bootstrap:
         specifier: ^5.3.8
         version: 5.3.8(@popperjs/core@2.11.8)
@@ -28,11 +28,11 @@ importers:
         specifier: ^2.5.14
         version: 2.5.14
       '@carry0987/plugin-manager':
-        specifier: ^2.0.4
-        version: 2.0.4
+        specifier: ^2.0.5
+        version: 2.0.5
       '@carry0987/utils':
-        specifier: ^4.1.0
-        version: 4.1.0
+        specifier: ^4.2.0
+        version: 4.2.0
       '@types/jquery':
         specifier: ^4.0.1
         version: 4.0.1
@@ -117,14 +117,15 @@ packages:
     cpu: [x64]
     os: [win32]
 
-  '@carry0987/plugin-manager@2.0.4':
-    resolution: {integrity: sha512-rrgx4Kpzzm38eRf8meCbo1teSUOuhqzAVy4431bTckBuhvPNDuqlL39ETb3Po9PUgGgdfCKpS5m5r+HyVfsAgw==}
+  '@carry0987/plugin-manager@2.0.5':
+    resolution: {integrity: sha512-lFcJ54YJbGB9Zqq8EnOSqjntKaMUpzYRt5/UJcVOPG+jpeWMjxx3e9rsZz8J3SrzgcE+3DPhaJngMJEXjk4HzQ==}
 
-  '@carry0987/utils-full@2.1.0':
-    resolution: {integrity: sha512-lmPb916ZyDwFS7JpD2cqJ/zohDhQdj7zzgxJJONHVdihh/BctDWe4ttV8zDSEv2Wg1inW/ZRdjMapN6Bv+ouug==}
+  '@carry0987/utils-full@2.1.2':
+    resolution: {integrity: sha512-QPOP4SQeMSzwjgnlNNhh7Yf5W0lOVNT/tDRmC7ppWWulyWaxHn/MtE/rHnE8ZQ2xuqjE8MXbZXygwNhrUq3nVg==}
 
-  '@carry0987/utils@4.1.0':
-    resolution: {integrity: sha512-3qcpjC3rwBEwT08tyAm8sSjGf+lPwHT+0EaP6Q5/bqiq0P7zsy9CqbubUtpiGKEfVLniS84YvyxCbGSi6SY+Pw==}
+  '@carry0987/utils@4.2.0':
+    resolution: {integrity: sha512-IuEd9AQDKzvqVPfhhJJnTwDuQiNkVbVuR3shxVR89dssy+OD11apB0HqiaUgY4e1i7dXJ0FTeERumPQBQ8Gp3g==}
+    engines: {node: '>=22'}
 
   '@nodelib/fs.scandir@2.1.5':
     resolution: {integrity: sha512-vq24Bq3ym5HEQm2NKCr3yXDwjc7vTsEThRDnkp2DK9p1uqLR+DHurm/NOTo0KG7HYHU7eppKZj3MyqYuMBf62g==}
@@ -1070,14 +1071,16 @@ snapshots:
   '@biomejs/cli-win32-x64@2.5.14':
     optional: true
 
-  '@carry0987/plugin-manager@2.0.4':
+  '@carry0987/plugin-manager@2.0.5':
     dependencies:
       '@types/micromatch': 4.0.10
       micromatch: 4.0.8
 
-  '@carry0987/utils-full@2.1.0': {}
+  '@carry0987/utils-full@2.1.2':
+    dependencies:
+      '@carry0987/utils': 4.2.0
 
-  '@carry0987/utils@4.1.0': {}
+  '@carry0987/utils@4.2.0': {}
 
   '@nodelib/fs.scandir@2.1.5':
     dependencies:

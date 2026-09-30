@@ -1,7 +1,7 @@
 {
   "type": "module",
   "dependencies": {
-    "@carry0987/utils-full": "^2.1.0",
+    "@carry0987/utils-full": "^2.1.2",
     "bootstrap": "^5.3.8",
     "jquery": "^4.0.0",
     "select2": "4.1.0",
@@ -17,8 +17,8 @@
   },
   "devDependencies": {
     "@biomejs/biome": "^2.5.14",
-    "@carry0987/plugin-manager": "^2.0.4",
-    "@carry0987/utils": "^4.1.0",
+    "@carry0987/plugin-manager": "^2.0.5",
+    "@carry0987/utils": "^4.2.0",
     "@types/jquery": "^4.0.1",
     "@types/node": "^26.6.3",
     "@types/select2": "^4.0.63",

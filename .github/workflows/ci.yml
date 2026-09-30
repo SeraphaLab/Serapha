@@ -27,8 +27,8 @@ jobs:
 
       - uses: pnpm/setup@v2
         with:
-          version: 11
-          runtime: node@22
+          version: 12
+          runtime: node@24
           cache: true
           package-json-file: install/package.json
           cache-dependency-path: install/pnpm-lock.yaml

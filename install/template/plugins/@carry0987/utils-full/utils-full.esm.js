@@ -10,7 +10,7 @@ var __exportAll$1 = (all, no_symbols) => {
 	return target;
 };
 //#endregion
-//#region node_modules/.pnpm/@carry0987+utils@4.1.0/node_modules/@carry0987/utils/dist/browser.js
+//#region node_modules/.pnpm/@carry0987+utils@4.2.0/node_modules/@carry0987/utils/dist/browser.js
 var browser_exports = /* @__PURE__ */ __exportAll$1({
 	addClass: () => addClass,
 	addEventListener: () => addEventListener,
@@ -466,7 +466,7 @@ var browserCommon_exports = /* @__PURE__ */ __exportAll({
 	shallowMerge: () => shallowMerge,
 	stylesheetId: () => stylesheetId
 });
-const version = "4.1.0";
+const version = "4.2.0";
 var errorUtils_exports = /* @__PURE__ */ __exportAll({
 	reportError: () => reportError,
 	throwError: () => throwError
@@ -991,7 +991,7 @@ var Utils = class {
 const UtilsWithStatics = Object.assign(Utils, browser_exports);
 Object.defineProperties(UtilsWithStatics, {
 	version: {
-		value: "2.1.0",
+		value: "2.1.2",
 		writable: false,
 		configurable: true
 	},
