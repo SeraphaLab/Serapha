@@ -1,5 +1,17 @@
 # Changelog
 
+## [0.3.6](https://github.com/SeraphaLab/Serapha/compare/v0.3.5...v0.3.6) (2026-09-30)
+
+
+### Bug Fixes
+
+* **install:** resolve utils type definitions ([b7a2f4a](https://github.com/SeraphaLab/Serapha/commit/b7a2f4a4ed26bcf4a83b0298c5f5c77e62478979))
+
+
+### Miscellaneous Chores
+
+* **deps:** update PHP and Composer dependencies ([ecbb1d9](https://github.com/SeraphaLab/Serapha/commit/ecbb1d920a60a16454f975636eee1787ecd495e6))
+
 ## [0.3.5](https://github.com/SeraphaLab/Serapha/compare/v0.3.4...v0.3.5) (2026-08-09)
 
 
