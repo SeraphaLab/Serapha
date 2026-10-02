@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.3.8](https://github.com/SeraphaLab/Serapha/compare/0.3.7...0.3.8) (2026-10-02)
+
+
+### Bug Fixes
+
+* **install:** declare JSON API responses ([c0f6a75](https://github.com/SeraphaLab/Serapha/commit/c0f6a75f6a9a668babec1ae405a1429d33ff6cb0))
+
 ## [0.3.7](https://github.com/SeraphaLab/Serapha/compare/0.3.6...0.3.7) (2026-09-30)
 
 
