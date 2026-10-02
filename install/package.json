@@ -1,12 +1,5 @@
 {
   "type": "module",
-  "dependencies": {
-    "@carry0987/utils-full": "^2.1.2",
-    "bootstrap": "^5.3.8",
-    "jquery": "^4.0.0",
-    "select2": "4.1.0",
-    "sweetalert2": "^11.26.25"
-  },
   "scripts": {
     "format": "biome format --write .",
     "format:check": "biome format .",
@@ -15,16 +8,23 @@
     "build:production": "BUILD=production pnpm dlx tsx template/dist/build.ts",
     "dist": "pnpm dlx tsx template/dist/pluginManager.ts"
   },
+  "dependencies": {
+    "@carry0987/utils-full": "^2.1.2",
+    "bootstrap": "^5.3.8",
+    "jquery": "^4.0.0",
+    "select2": "4.1.0",
+    "sweetalert2": "^11.26.25"
+  },
   "devDependencies": {
-    "@biomejs/biome": "^2.5.14",
+    "@biomejs/biome": "^2.5.15",
     "@carry0987/plugin-manager": "^2.0.5",
     "@carry0987/utils": "^4.2.0",
     "@types/jquery": "^4.0.1",
-    "@types/node": "^26.6.3",
+    "@types/node": "^26.6.4",
     "@types/select2": "^4.0.63",
     "del": "^8.0.1",
     "npm-run-all": "^4.1.5",
-    "rolldown": "^1.2.11",
+    "rolldown": "^1.2.12",
     "tslib": "^2.8.1",
     "typescript": "^7.0.2"
   }

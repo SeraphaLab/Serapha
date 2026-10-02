@@ -1,4 +1,7 @@
+allowBuilds:
+  esbuild: true
 minimumReleaseAgeExclude:
   - '@carry0987/plugin-manager@2.0.5'
   - '@carry0987/utils-full@2.1.2'
   - '@carry0987/utils@4.2.0'
+  - '@types/node@26.6.4'
