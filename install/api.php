@@ -26,4 +26,5 @@ if ($method = RESTful::verifyHttpMethod(true)) {
     $result = $api::fetchResult($method);
 }
 
+header('Content-Type: application/json; charset=utf-8');
 exit(json_encode($result));
