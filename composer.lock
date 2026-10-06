@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "ce02d489e7d170e08cddfba4e91eb86e",
+    "content-hash": "cec8c83664f591744981c51da852b396",
     "packages": [
         {
             "name": "cakephp/chronos",
@@ -572,16 +572,16 @@
         },
         {
             "name": "carry0987/sanite",
-            "version": "1.3.10",
+            "version": "1.4.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/carry0987/Sanite.git",
-                "reference": "59cf9c4d3f830cd354d1f70271c47e8ae057ed22"
+                "reference": "6349e0032eb8903243cfa197d5522ed6a22b8e58"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/carry0987/Sanite/zipball/59cf9c4d3f830cd354d1f70271c47e8ae057ed22",
-                "reference": "59cf9c4d3f830cd354d1f70271c47e8ae057ed22",
+                "url": "https://api.github.com/repos/carry0987/Sanite/zipball/6349e0032eb8903243cfa197d5522ed6a22b8e58",
+                "reference": "6349e0032eb8903243cfa197d5522ed6a22b8e58",
                 "shasum": ""
             },
             "require": {
@@ -608,9 +608,9 @@
             "description": "A PHP library that provide base CRUD structure and methods, using PDO.",
             "support": {
                 "issues": "https://github.com/carry0987/Sanite/issues",
-                "source": "https://github.com/carry0987/Sanite/tree/1.3.10"
+                "source": "https://github.com/carry0987/Sanite/tree/1.4.0"
             },
-            "time": "2025-12-22T12:10:14+00:00"
+            "time": "2026-10-03T06:40:18+00:00"
         },
         {
             "name": "carry0987/session-manager",
@@ -653,23 +653,26 @@
         },
         {
             "name": "carry0987/template-engine",
-            "version": "1.3.13",
+            "version": "1.4.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/carry0987/TemplateEngine.git",
-                "reference": "9350a354495fcfe45e57556da7a414c9219d1954"
+                "reference": "89b18ca34d23ec471cde0c3ea3e7ba55427409ce"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/carry0987/TemplateEngine/zipball/9350a354495fcfe45e57556da7a414c9219d1954",
-                "reference": "9350a354495fcfe45e57556da7a414c9219d1954",
+                "url": "https://api.github.com/repos/carry0987/TemplateEngine/zipball/89b18ca34d23ec471cde0c3ea3e7ba55427409ce",
+                "reference": "89b18ca34d23ec471cde0c3ea3e7ba55427409ce",
                 "shasum": ""
             },
             "require": {
                 "carry0987/redis-tool": "^1.1",
-                "carry0987/sanite": "^1.1",
-                "carry0987/utils": "^1.0",
+                "carry0987/sanite": "^1.4",
+                "carry0987/utils": "^1.1",
                 "php": ">=8.1"
+            },
+            "require-dev": {
+                "phpunit/phpunit": "^10.5"
             },
             "type": "library",
             "autoload": {
@@ -694,9 +697,9 @@
             ],
             "support": {
                 "issues": "https://github.com/carry0987/TemplateEngine/issues",
-                "source": "https://github.com/carry0987/TemplateEngine/tree/1.3.13"
+                "source": "https://github.com/carry0987/TemplateEngine/tree/1.4.1"
             },
-            "time": "2026-03-13T20:31:31+00:00"
+            "time": "2026-10-03T11:41:24+00:00"
         },
         {
             "name": "carry0987/utils",
@@ -1533,16 +1536,16 @@
         },
         {
             "name": "serapha/framework",
-            "version": "1.2.15",
+            "version": "1.3.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/SeraphaLab/Framework.git",
-                "reference": "fb40107b6b05241ed4de360550aa5a8688600455"
+                "reference": "7620fe724a222495e1c38f9e0f9895970a0d3bdc"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/SeraphaLab/Framework/zipball/fb40107b6b05241ed4de360550aa5a8688600455",
-                "reference": "fb40107b6b05241ed4de360550aa5a8688600455",
+                "url": "https://api.github.com/repos/SeraphaLab/Framework/zipball/7620fe724a222495e1c38f9e0f9895970a0d3bdc",
+                "reference": "7620fe724a222495e1c38f9e0f9895970a0d3bdc",
                 "shasum": ""
             },
             "require": {
@@ -1589,9 +1592,9 @@
             ],
             "support": {
                 "issues": "https://github.com/SeraphaLab/Framework/issues",
-                "source": "https://github.com/SeraphaLab/Framework/tree/1.2.15"
+                "source": "https://github.com/SeraphaLab/Framework/tree/1.3.0"
             },
-            "time": "2026-09-29T22:55:03+00:00"
+            "time": "2026-10-02T12:32:07+00:00"
         },
         {
             "name": "symfony/config",
@@ -2165,16 +2168,16 @@
         },
         {
             "name": "symfony/polyfill-mbstring",
-            "version": "v1.38.2",
+            "version": "v1.43.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/polyfill-mbstring.git",
-                "reference": "d3d318bad5e7a1bfbd026009c8bfb8d8f99ae6b6"
+                "reference": "4d5d331bf731e0aedbc6b2f5e61135b7b7996a72"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/polyfill-mbstring/zipball/d3d318bad5e7a1bfbd026009c8bfb8d8f99ae6b6",
-                "reference": "d3d318bad5e7a1bfbd026009c8bfb8d8f99ae6b6",
+                "url": "https://api.github.com/repos/symfony/polyfill-mbstring/zipball/4d5d331bf731e0aedbc6b2f5e61135b7b7996a72",
+                "reference": "4d5d331bf731e0aedbc6b2f5e61135b7b7996a72",
                 "shasum": ""
             },
             "require": {
@@ -2226,7 +2229,7 @@
                 "shim"
             ],
             "support": {
-                "source": "https://github.com/symfony/polyfill-mbstring/tree/v1.38.2"
+                "source": "https://github.com/symfony/polyfill-mbstring/tree/v1.43.0"
             },
             "funding": [
                 {
@@ -2246,20 +2249,20 @@
                     "type": "tidelift"
                 }
             ],
-            "time": "2026-05-27T06:59:30+00:00"
+            "time": "2026-09-24T15:19:04+00:00"
         },
         {
             "name": "symfony/polyfill-php80",
-            "version": "v1.37.0",
+            "version": "v1.43.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/polyfill-php80.git",
-                "reference": "dfb55726c3a76ea3b6459fcfda1ec2d80a682411"
+                "reference": "9c6a5d6b01ca51d486c813e9a9c0ed55f208bb74"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/polyfill-php80/zipball/dfb55726c3a76ea3b6459fcfda1ec2d80a682411",
-                "reference": "dfb55726c3a76ea3b6459fcfda1ec2d80a682411",
+                "url": "https://api.github.com/repos/symfony/polyfill-php80/zipball/9c6a5d6b01ca51d486c813e9a9c0ed55f208bb74",
+                "reference": "9c6a5d6b01ca51d486c813e9a9c0ed55f208bb74",
                 "shasum": ""
             },
             "require": {
@@ -2310,7 +2313,7 @@
                 "shim"
             ],
             "support": {
-                "source": "https://github.com/symfony/polyfill-php80/tree/v1.37.0"
+                "source": "https://github.com/symfony/polyfill-php80/tree/v1.43.0"
             },
             "funding": [
                 {
@@ -2330,7 +2333,7 @@
                     "type": "tidelift"
                 }
             ],
-            "time": "2026-04-10T16:19:22+00:00"
+            "time": "2026-09-25T15:50:05+00:00"
         },
         {
             "name": "symfony/polyfill-php85",
